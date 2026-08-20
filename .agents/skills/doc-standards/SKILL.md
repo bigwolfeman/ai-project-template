@@ -17,7 +17,7 @@ Rules live in [docs/AGENTS.md](../../../docs/AGENTS.md). Experiments: [docs/expe
 ## What goes where
 
 - Standing order → root `AGENTS.md` plus a link
-- Principle → `docs/constitution.md`
+- Project vision / long-term principles → `docs/constitution.md` (fill the template with the user; do not leave it as shipped)
 - Why we chose X → Agent Note
 - How to do X → `docs/cookbook/`
 - Measured claim → experiment

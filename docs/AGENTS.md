@@ -14,7 +14,7 @@ A document describes its own subject. Children are named by purpose only; link t
 |---|---|---|
 | Root `AGENTS.md` | Standing orders, 1–3 lines, link to home | Stories, procedures, examples |
 | Subtree `AGENTS.md` | Orders for that subtree only | Rules already at root |
-| `docs/constitution.md` | Principles that force layout | Per-file how-tos |
+| `docs/constitution.md` | This project's vision and principles (filled with the user; the shipped file is a template) | Standing orders, how-tos, experiment logs |
 | Agent Notes | Why, what was given up, verification | Run logs, incident timelines |
 | `docs/experiments/` | Hypothesis, predictions, method, results, updated belief | Architecture decisions |
 | `docs/experiments/algorithms/` | Algorithm writeups and notebooks | Experiment run records |

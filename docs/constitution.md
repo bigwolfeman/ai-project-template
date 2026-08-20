@@ -1,97 +1,84 @@
 # Project Constitution
 
-**Version**: 1.0.0
-**Ratified**: 2026-08-20
-**Last Amended**: 2026-08-20
+**Status**: TEMPLATE — not yet the law of a real project. Replace every `[bracket]` block with this project's own facts. Delete the template instructions. Set **Status** to `Ratified` when the user agrees the vision is accurate.
 
-## Context and applicability
+**Version**: 0.0.0
+**Ratified**: [YYYY-MM-DD or unfilled]
+**Last Amended**: [YYYY-MM-DD or unfilled]
 
-This repository is a **greenfield template** for AI-assisted projects. Clone it, then replace this preamble's project-specific sentences. The structure is the product: agents should be unable to dump notes, experiments, and production code into one pile.
+This file is the long-term track for the project. It holds the full vision — what we are building, for whom, what success looks like, what we refuse to build, and the principles that keep later work from drifting. Standing orders and file layout live in [AGENTS.md](../AGENTS.md); **why this project exists** lives here.
 
-**When these rules apply**
+Fill it with the user. Do not invent a vision and leave it unreviewed. Do not leave brackets in a ratified constitution.
 
-- All new code and documentation
-- Promotion from `lab/` or `docs/experiments/` into production
-- Significant refactors
+## Vision
 
-**When override is permitted**
+[One to three paragraphs. The agent's complete current understanding of the project, refined with the user. What the thing is. What world it assumes. What "done" feels like years out, not just the next patch.]
 
-- Explicit user authorization with a one-line rationale in the change
-- True emergency fixes (record the debt in `Incomplete/` the same day)
+## Problem
 
-**Agent guidance**: when uncertain, follow the constitution.
+[Whose problem, in concrete terms. What is painful or impossible today.]
 
-## Principle 1: Lifecycle separation
+## Users and operators
 
-**The rule**: Production code lives in `src/`. Unstructured spikes live in `lab/`. Measured inquiry lives in `docs/experiments/`. Decisions live in `.agents/notes/`. Incidents live in `docs/postmortem/`.
+[Who uses it. Who runs it. Who is harmed if it is wrong.]
 
-**Why**: Agents duplicate work when they cannot tell what is shipped, guessed, measured, or decided.
+## Scope
 
-**How to apply**
+**In scope**
 
-- A spike with no hypothesis goes in `lab/` and dies or graduates; it does not become an experiment after the fact.
-- An experiment starts in `docs/experiments/planned/` with predictions committed first.
-- Promoting code to `src/` requires tests or an explicit Agent Note explaining why tests are not applicable.
+- [Must exist for the vision to be real]
 
-## Principle 2: One home per fact
+**Out of scope (non-goals)**
 
-**The rule**: Each fact has one owning document. Other documents link; they do not copy.
+- [Tempting adjacent work we are not doing, and why]
 
-**Why**: Duplicated rules drift. Agents follow the nearest copy.
+## Success criteria
 
-**How to apply**: follow the tier table in [docs/AGENTS.md](AGENTS.md).
+[Observable outcomes, not slogans. How a later agent would know the project is still on the rails.]
 
-## Principle 3: Scientific method for experiments
+## Constraints
 
-**The rule**: Write the question, hypothesis, predictions, and method before any run. Results never appear in `planned/`. After the run, move the file to `successes/` or `failures/` and update the hypothesis from evidence. Inconclusive runs stay classified as failure of the *protocol* unless the hypothesis was actually tested.
+[Language, runtime, hardware, licenses, privacy, safety, budget, "must run on this machine", compatibility. Empty if none yet — say so.]
 
-**Why**: Post-hoc stories feel like science and are not.
+## Principles
 
-**How to apply**: [docs/experiments/AGENTS.md](experiments/AGENTS.md).
+Project-specific rules that force good organization. Not a copy of `AGENTS.md`.
 
-## Principle 4: Decisions record what they beat
+### Principle 1: [Name]
 
-**The rule**: Every Agent Note states the problem, the decision or proposal, and the alternatives that lost.
+**The rule**: [Declarative]
 
-**Why**: A decision without losers will be re-litigated.
+**Why**: [What drift this prevents]
 
-**How to apply**: [.agents/notes/README.md](../.agents/notes/README.md).
+**How to apply**: [Concrete]
 
-## Principle 5: Fail loud
+### Principle 2: [Name]
 
-**The rule**: Missing files, failed commands, and invalid experiment state raise errors. No silent `except`, no skipped steps because "it should work".
+**The rule**:
 
-**Validation**: `python scripts/verify_template.py` exits non-zero on layout or format violations.
+**Why**:
 
-## Directory structure
+**How to apply**:
 
-```
-.
-├── AGENTS.md
-├── CLAUDE.md              # symlink → AGENTS.md
-├── README.md
-├── .agents/
-│   ├── notes/
-│   └── skills/
-├── .cursor/rules/
-├── docs/
-│   ├── AGENTS.md
-│   ├── constitution.md
-│   ├── cookbook/
-│   ├── experiments/
-│   └── postmortem/
-├── scripts/
-│   └── verify_template.py
-├── src/                   # create when code exists
-└── lab/                   # optional spikes
-```
+[Add principles as the project learns. Remove principles nobody follows.]
+
+## Architecture sketch
+
+[How the major pieces relate. Where production code lives for *this* stack. Integration boundaries. Link Agent Notes for decisions; do not duplicate them.]
+
+## When this constitution applies
+
+- All new work that could change what the project is
+- Features, refactors, and promotions into production
+
+**Override**: only with explicit user authorization and a one-line rationale recorded in the change. If the vision itself changed, amend this file with the user; do not silently ignore it.
 
 ## Governance
 
-Amend by Agent Note in `.agents/notes/proposed/process/`, then update this file and bump:
+Amend with the user when the vision or a principle is wrong. Bump:
 
-- MAJOR: incompatible layout
-- MINOR: new principle
+- MAJOR: the project is a different thing
+- MINOR: new principle or new in-scope capability
 - PATCH: clarification
 
-Review when a pain point repeats twice.
+Record substantial amendments in an Agent Note under `.agents/notes/`.

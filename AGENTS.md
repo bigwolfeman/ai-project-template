@@ -2,7 +2,9 @@
 
 Standing orders for every agent session. One to three lines per rule; the linked file owns the detail.
 
-Read [docs/constitution.md](docs/constitution.md) and [docs/AGENTS.md](docs/AGENTS.md) before changing layout or documentation. Follow [docs/experiments/AGENTS.md](docs/experiments/AGENTS.md) before running or writing up any experiment. Follow [.agents/notes/README.md](.agents/notes/README.md) before recording a design decision.
+**Read [docs/constitution.md](docs/constitution.md) at least once in every context window** before doing project work. That file is the long-term track. If Status is still `TEMPLATE`, the first project job is to write the constitution with the user: the agent's full vision of the project, refined until the user agrees, saved thoroughly enough that a later session cannot honestly drift. `docs/constitution.md` as shipped is a form, not a vision — fill every `[bracket]`, remove template instructions, set Status to `Ratified`. Do not treat an unfilled template as law, and do not start features while the vision still lives only in chat.
+
+Then read [docs/AGENTS.md](docs/AGENTS.md) before changing documentation layout. Follow [docs/experiments/AGENTS.md](docs/experiments/AGENTS.md) before running or writing up any experiment. Follow [.agents/notes/README.md](.agents/notes/README.md) before recording a design decision. Follow [.agents/notes/AGENTS.md](.agents/notes/AGENTS.md) at least once in the context window when writing notes.
 
 ## Repository layout
 
@@ -21,6 +23,7 @@ Incomplete/        Operator leftovers — never committed
 
 ## Standing orders
 
+- **Constitution is the long-term track.** Read [docs/constitution.md](docs/constitution.md) at least once in every context window. At project start, create it with the user from that template: save the agent's full vision, refined until the user agrees. Do not leave a TEMPLATE constitution in force, and do not keep the vision only in chat.
 - **One home per fact.** Put a rule in the tier that owns it; elsewhere, link. Do not restate.
 - **Non-trivial changes get an Agent Note in the same change.** Exempt only mechanical or local edits. Path: `.agents/notes/{lifecycle}/{class}/yyyy-mm-dd-topic.md`.
 - **Predictions before results.** Never record experimental outcomes until a `docs/experiments/planned/` file with Hypothesis, Predictions, and Method is written. Do not backfill predictions after seeing data.

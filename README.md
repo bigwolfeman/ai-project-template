@@ -19,7 +19,7 @@ Then follow [docs/cookbook/starting-a-project.md](docs/cookbook/starting-a-proje
 | Kind of work | Where it goes |
 |---|---|
 | Standing orders | [AGENTS.md](AGENTS.md) |
-| Principles | [docs/constitution.md](docs/constitution.md) |
+| Project vision (fill at start) | [docs/constitution.md](docs/constitution.md) |
 | Design decisions | [.agents/notes/](.agents/notes/README.md) |
 | How-tos | [docs/cookbook/](docs/cookbook/starting-a-project.md) |
 | Experiments | [docs/experiments/](docs/experiments/README.md) — **predictions first** |

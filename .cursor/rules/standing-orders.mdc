@@ -5,10 +5,11 @@ alwaysApply: true
 
 # Project standing orders
 
-Before non-trivial work, read:
+Read [docs/constitution.md](../../docs/constitution.md) at least once in every context window. If it is still a TEMPLATE, write the project vision with the user before other work.
+
+Also read:
 
 1. [AGENTS.md](../../AGENTS.md)
-2. [docs/constitution.md](../../docs/constitution.md)
 
 Non-trivial changes need an Agent Note under `.agents/notes/{lifecycle}/{class}/`.
 
