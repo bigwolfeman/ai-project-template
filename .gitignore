@@ -1,0 +1,14 @@
+Incomplete/
+ignored/
+
+.env
+.env.*
+!.env.example
+
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+node_modules/
+.DS_Store

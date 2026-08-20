@@ -1,0 +1,17 @@
+---
+description: Standing orders — read AGENTS.md, constitution, and experiment rules before changing layout or running experiments.
+alwaysApply: true
+---
+
+# Project standing orders
+
+Before non-trivial work, read:
+
+1. [AGENTS.md](../../AGENTS.md)
+2. [docs/constitution.md](../../docs/constitution.md)
+
+Non-trivial changes need an Agent Note under `.agents/notes/{lifecycle}/{class}/`.
+
+Experiments: predictions are committed in `docs/experiments/planned/` before any run. Never add `## Results` there. Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md) and `.agents/skills/run-experiment/SKILL.md`.
+
+After note or experiment edits, run `python scripts/verify_template.py` and report the result. Failures are errors, not hints.

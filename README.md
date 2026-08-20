@@ -1,0 +1,36 @@
+# AI project template
+
+A starter for AI-assisted repositories. It enforces the documentation layout used by [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (nested `AGENTS.md`, path-encoded Agent Notes, one home per fact) and adds a scientific-method experiment tree.
+
+This is not a fork of the harness. Product, plugin, and bilingual machinery stay with upstream.
+
+## Use it
+
+```sh
+git clone https://github.com/bigwolfeman/ai-project-template.git my-project
+cd my-project
+python scripts/verify_template.py
+```
+
+Then follow [docs/cookbook/starting-a-project.md](docs/cookbook/starting-a-project.md).
+
+## What agents must do
+
+| Kind of work | Where it goes |
+|---|---|
+| Standing orders | [AGENTS.md](AGENTS.md) |
+| Principles | [docs/constitution.md](docs/constitution.md) |
+| Design decisions | [.agents/notes/](.agents/notes/README.md) |
+| How-tos | [docs/cookbook/](docs/cookbook/starting-a-project.md) |
+| Experiments | [docs/experiments/](docs/experiments/README.md) — **predictions first** |
+| Escaped bugs | [docs/postmortem/](docs/postmortem/README.md) |
+| Spikes | `lab/` |
+| Production code | `src/` |
+
+`Incomplete/` and `ignored/` are gitignored. Put local clones and bulky artifacts in `ignored/`.
+
+## Verify
+
+```sh
+python scripts/verify_template.py
+```

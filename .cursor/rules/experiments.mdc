@@ -1,0 +1,16 @@
+---
+description: Scientific-method experiment files — predictions before results, path-encoded status.
+globs: docs/experiments/**/*.md
+alwaysApply: false
+---
+
+# Experiment documents
+
+Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md).
+
+- `planned/` — Question, Hypothesis, Predictions, Method. No Results.
+- `successes/` / `failures/` — same Predictions plus Results, Verdict, Updated hypothesis. Status matches folder.
+- `algorithms/` — method writeups, not runs.
+- `results/` — artifacts named after the run slug.
+
+Do not edit Predictions after artifacts exist. Do not backfill a planned file from a completed run.
