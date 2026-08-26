@@ -97,4 +97,4 @@ Each genuine alternative and why it lost. Record alternatives; do not invent the
 
 Archive an implemented note when it is complete and unlikely to guide future work. Keep it active when alternatives, negative guarantees, ownership, security, or reintroduction conditions still matter.
 
-Archival: move the file, insert `Archived: YYYY-MM-DD` immediately under `Status: implemented`, repair inbound links. Then never edit it. Use [.agents/skills/archive-agent-notes/SKILL.md](../skills/archive-agent-notes/SKILL.md).
+Archival: move the file, insert `Archived: YYYY-MM-DD` immediately under `Status: implemented`, repair inbound links. Then never edit it. Use [.agents/skills/maintain-docs/SKILL.md](../skills/maintain-docs/SKILL.md).

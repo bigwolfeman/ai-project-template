@@ -40,4 +40,4 @@ Copy tests/fixtures/campaigns/tiny-generic into a temporary Git repository. Seal
 ## Related
 
 - lab/templates/campaign/
-- .agents/skills/run-research-loop/SKILL.md
+- .agents/skills/run-campaign/SKILL.md

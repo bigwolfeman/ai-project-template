@@ -22,30 +22,19 @@ SKILLS_DIR = ROOT / ".agents" / "skills"
 # Skills that must refuse unbounded / NEVER STOP language.
 SKILLS_REQUIRE_UNBOUNDED_REFUSAL = frozenset(
     {
-        "run-research-loop",
-        "scope-research-campaign",
-        "audit-research-integrity",
-        "diagnose-failed-trial",
-        "explore-performance-valley",
-        "design-campaign",
+        "setup-campaign",
+        "run-campaign",
+        "close-campaign",
     }
 )
 
 # Skills that must refuse destructive hard-reset as candidate rejection.
 SKILLS_REQUIRE_HARD_RESET_REFUSAL = frozenset(
     {
-        "run-research-loop",
-        "scope-research-campaign",
-        "evaluate-candidate",
-        "explore-performance-valley",
-        "promote-research-result",
-        "audit-research-integrity",
-        "diagnose-failed-trial",
-        "manage-research-issues",
-        "baseline-campaign",
-        "design-campaign",
+        "setup-campaign",
+        "run-campaign",
+        "close-campaign",
         "prove-property",
-        "synthesize-campaign",
     }
 )
 

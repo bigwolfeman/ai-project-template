@@ -51,22 +51,15 @@ STAGNATION_LIMITS = (
 )
 RESEARCH_SKILLS = (
     "research-shared",
-    "scope-research-campaign",
-    "design-campaign",
-    "design-evaluator",
-    "form-hypothesis",
-    "edit-technical-prose",
-    "baseline-campaign",
-    "run-research-loop",
-    "evaluate-candidate",
-    "manage-research-issues",
-    "explore-performance-valley",
-    "diagnose-failed-trial",
+    "maintain-docs",
+    "run-experiment",
+    "setup-campaign",
+    "run-campaign",
+    "close-campaign",
     "prove-property",
-    "synthesize-campaign",
-    "promote-research-result",
-    "audit-research-integrity",
 )
+# Thin skills: SKILL.md required; references/examples.md optional.
+THIN_RESEARCH_SKILLS = frozenset({"research-shared", "maintain-docs"})
 PLANNED_LINK = re.compile(r"\[[^\]]+\]\([^)]*docs/experiments/planned/[^)]+\)")
 
 
@@ -112,7 +105,7 @@ def check_optional_research_skills(errors: Any, root: Path = ROOT) -> None:
             continue
         if not skill_md.read_text(encoding="utf-8").strip():
             errors.add(f"{skill_md.relative_to(root)}: SKILL.md is empty")
-        if name == "research-shared":
+        if name in THIN_RESEARCH_SKILLS:
             continue
         examples = skills_root / name / "references" / "examples.md"
         if not examples.is_file():

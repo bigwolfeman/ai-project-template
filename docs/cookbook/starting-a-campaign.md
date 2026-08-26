@@ -9,7 +9,7 @@ A campaign is a bounded research program. It is not a spike. It is not one exper
 5. The agent copies `lab/templates/campaign/` to `lab/campaigns/<slug>/`. If that template is absent, the agent stops and reports the missing path. The agent does not use the template path as a live campaign.
 6. The agent writes `program.md`. That file links planned experiment documents. It does not copy their predictions. Experiment procedure: [starting-an-experiment.md](starting-an-experiment.md).
 7. The agent and the human seal the evaluator (`evaluator.lock.json`) and set an explicit budget before any run.
-8. After the campaign is sealed, the agent follows [running-a-campaign.md](running-a-campaign.md). If `scripts/run_campaign.py` is absent, the agent uses [baseline-campaign](../../.agents/skills/baseline-campaign/SKILL.md) and [run-research-loop](../../.agents/skills/run-research-loop/SKILL.md) as procedures only. The agent does not invent a runner.
+8. After the campaign is sealed, the agent follows [running-a-campaign.md](running-a-campaign.md). If `scripts/run_campaign.py` is absent, the agent uses [run-campaign](../../.agents/skills/run-campaign/SKILL.md) as procedure only. The agent does not invent a runner.
 9. The agent does not run `git reset --hard` to reject a candidate. The agent does not follow unbounded loop instructions such as NEVER STOP.
 10. The agent does not promote campaign output into `src/` without human review and an Agent Note.
 

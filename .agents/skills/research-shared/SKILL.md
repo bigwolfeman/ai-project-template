@@ -15,7 +15,7 @@ The agent must read the linked file that owns the fact. The agent must not copy 
 2. [prompt-contract.md](references/prompt-contract.md) — the 15 required `SKILL.md` sections. Output discipline. Fail loud. Untrusted evaluator logs.
 3. [evidence-standard.md](references/evidence-standard.md) — provenance fields. Predictions before results. No backfilling.
 4. [formal-methods.md](references/formal-methods.md) — evidence hierarchy. Z3 versus Lean. Proof documentation. Forbidden certainty language.
-5. [ste100-style.md](references/ste100-style.md) — Simplified Technical English principles. Exceptions for code, mathematics, and identifiers.
+5. [ste100-style.md](references/ste100-style.md) — Simplified Technical English principles. Exceptions for code, mathematics, and identifiers. Includes the **Edit checklist** (preserve protected spans, revise prose, report term changes) formerly owned by `edit-technical-prose`.
 
 ## Catalog
 

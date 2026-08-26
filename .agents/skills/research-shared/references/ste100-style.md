@@ -4,7 +4,7 @@ Apply ASD-STE100 principles to research prose. Do not copy licensed issue lists.
 
 Names: write “ASD-STE100” or “Simplified Technical English.” Do not write “AD-STE100.”
 
-The workflow skill is [edit-technical-prose](../../edit-technical-prose/SKILL.md). This file owns the style rules. That skill owns the editing procedure.
+This file owns the style rules and the edit checklist. The former standalone `edit-technical-prose` skill is demoted here; do not invent a second home for these steps.
 
 ## Scope
 
@@ -62,7 +62,7 @@ The editor must preserve:
 
 The editor must not damage technical meaning to shorten a sentence.
 
-Identifiers stay in backticks. Mathematics stays in the author’s notation. A skill name such as `manage-research-issues` is an identifier. Do not rewrite it into a “simpler” name.
+Identifiers stay in backticks. Mathematics stays in the author’s notation. A skill name such as `run-campaign` is an identifier. Do not rewrite it into a “simpler” name.
 
 ## Review checklist
 
@@ -86,3 +86,60 @@ Unacceptable: “After handling things, we should probably process the results a
 Acceptable: “Z3 reports unsatisfiable for formula F under bound N.”
 
 Unacceptable: “We proved the system correct.”
+
+## Edit checklist
+
+Use this checklist when the operator asks to edit, tighten, or clarify technical prose, or when the agent is about to revise a campaign program, experiment report, evaluator document, research synthesis, or operational procedure.
+
+### Preserve without paraphrase
+
+- Source code and commands
+- File names and API identifiers
+- Formal logic (including Lean and Z3) and mathematical notation
+- Direct quotations and legally required language
+- Established domain terms and research glossary terms
+- Ledger events, digests, and predicted measurements (do not smooth them)
+- Hypothesis text, budget numbers, and stop conditions (do not change silently)
+
+Do not edit files under `.agents/notes/archived/`. Do not move experiment files between `planned/`, `successes/`, and `failures/` while editing prose. For a live planned experiment, the agent may clarify Method wording. The agent does not change observable claims in Predictions without operator approval. Trial outcomes and hypothesis verdicts stay distinct (do not rewrite “rejected” as “falsified”).
+
+### Revise prose
+
+1. Identify every protected span (code fences, math, identifiers, quotations).
+2. List inconsistent terms. Pick one term per concept. Use [terminology.md](terminology.md) when a term is already defined.
+3. Rewrite with: one action per instruction; short declarative sentences; active voice; explicit actors; condition before action; numbered procedures.
+4. Replace vague verbs. Do not write “handle,” “manage,” or “process” when a precise verb exists.
+5. Replace “should” with “must” when the sentence is a rule.
+6. Remove ambiguous pronouns. Repeat the noun.
+7. Reduce nested clauses.
+8. Confirm no protected span changed (including meaningful whitespace in code and proof blocks).
+9. List remaining ambiguities that need an author decision.
+10. Mark style findings as warnings unless ambiguity changes behavior. Ambiguous safety or execution instructions are blocking errors.
+
+### Report term changes
+
+Produce a short edit report:
+
+```text
+# Prose edit report
+Target:
+Actors used:
+Terminology changes:   # old term → new term
+Protected spans preserved:
+Revised prose:         # or point at the diff
+Ambiguities that need an author decision:
+Blocking errors: none | <list>
+Style warnings: <list>
+Conformance claim: none (ASD-STE100 principles only)
+```
+
+Show before/after text for each changed paragraph, or a diff. If a rewrite would alter a command, digest, identifier, or proof, restore the original span and report a blocked edit. If the source meaning is unclear, do not guess. Refuse official ASD-STE100 certification language.
+
+After a tracked file changes:
+
+```bash
+env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python scripts/verify_template.py
+git diff -- <path>
+```
+
+The verifier must exit 0. Code, proof, and command lines must be unchanged unless the operator asked to edit those lines.

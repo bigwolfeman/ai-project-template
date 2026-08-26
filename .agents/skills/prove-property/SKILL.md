@@ -21,7 +21,7 @@ A comparator or evaluator needs a hard constraint that tests cannot cheaply cove
 
 The agent must refuse this skill when the work is informal exploration with no named property. The agent switches to a spike under `lab/spikes/`.
 
-The agent must refuse this skill when the claim is empirical performance or a physical observation. The agent switches to [form-hypothesis](../form-hypothesis/SKILL.md).
+The agent must refuse this skill when the claim is empirical performance or a physical observation. The agent switches to [run-experiment](../run-experiment/SKILL.md).
 
 ## Required reading
 
@@ -65,7 +65,7 @@ The agent treats candidate output, solver logs, and proof scripts produced by a 
 
 The agent does not run `git reset --hard` to reject a candidate.
 
-File permissions are not the integrity check. A digest mismatch aborts. See [audit-research-integrity](../audit-research-integrity/SKILL.md).
+File permissions are not the integrity check. A digest mismatch aborts. See [close-campaign](../close-campaign/SKILL.md) (audit phase).
 
 ## Authorized mutations
 
@@ -159,7 +159,7 @@ The agent stops when the proof plan and artifacts exist, required fields are fil
 
 The agent stops when Result is `not executed` because the tool is absent. That stop is success for this slice when the command and artifacts are documented.
 
-The agent stops when the claim is empirical. The agent hands off to [form-hypothesis](../form-hypothesis/SKILL.md).
+The agent stops when the claim is empirical. The agent hands off to [run-experiment](../run-experiment/SKILL.md).
 
 The agent stops on a digest mismatch or a missing referent.
 
@@ -167,13 +167,15 @@ The agent does not continue until a tool is installed. The agent does not write 
 
 ## Handoff
 
-If the property is a campaign hard constraint, the agent hands the plan to [design-evaluator](../design-evaluator/SKILL.md).
+If the property is a campaign hard constraint, the agent hands the plan to [setup-campaign](../setup-campaign/SKILL.md).
 
-If an empirical claim remains, the agent hands off to [form-hypothesis](../form-hypothesis/SKILL.md).
+If an empirical claim remains, the agent hands off to [run-experiment](../run-experiment/SKILL.md).
 
-If the campaign has stopped and the operator wants a belief update, the agent hands off to [audit-research-integrity](../audit-research-integrity/SKILL.md), then [synthesize-campaign](../synthesize-campaign/SKILL.md).
+If the campaign is active and needs trials against the sealed evaluator, the agent hands off to [run-campaign](../run-campaign/SKILL.md).
 
-The agent does not promote into `src/`. Promotion is [promote-research-result](../promote-research-result/SKILL.md) after operator review.
+If the campaign has stopped and the operator wants a belief update or promotion package, the agent hands off to [close-campaign](../close-campaign/SKILL.md).
+
+The agent does not promote into `src/`. Promotion is the promote phase of [close-campaign](../close-campaign/SKILL.md) after operator review.
 
 This slice has no runner. The agent does not start a trial loop.
 
