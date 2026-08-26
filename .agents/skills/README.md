@@ -2,7 +2,7 @@
 
 This directory owns reusable workflows. Root `AGENTS.md` names the toolkit and links here. This file selects a workflow. It does not copy a skill procedure.
 
-Architecture: [Automated research campaigns](../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md).
+Architecture: [Automated research campaigns](../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md).
 
 ## Shared references
 

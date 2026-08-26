@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 from typing import Any, Callable
 
 from campaign_schema import ROOT
 
-from .errors import CampaignRunnerError
+from .errors import CampaignRunnerError, WorktreeError
 from .worktree import (
     create_worktree,
     current_commit,
@@ -45,6 +46,52 @@ def prepare_isolation(campaign_dir: Path, manifest: dict[str, Any], campaign_id:
     )
 
 
+def overlay_paths(
+    source: Path,
+    dest: Path,
+    rel_paths: list[str],
+    *,
+    campaign_id: str | None = None,
+) -> None:
+    """Copy mutable and protected paths from the campaign into a worktree.
+
+    The campaign directory remains the authority for lock digests. The worktree
+    receives a fresh overlay so the evaluator runs against candidate mutable
+    files plus a sealed copy of the protected harness.
+    """
+    root = source.resolve()
+    for rel in rel_paths:
+        if not rel or Path(rel).is_absolute() or ".." in Path(rel).parts:
+            raise WorktreeError(
+                f"overlay path must be a relative path without '..': {rel!r}",
+                campaign_id=campaign_id,
+                path=rel,
+            )
+        src = (source / rel).resolve()
+        try:
+            src.relative_to(root)
+        except ValueError as exc:
+            raise WorktreeError(
+                f"overlay path escapes campaign directory: {rel}",
+                campaign_id=campaign_id,
+                path=rel,
+            ) from exc
+        if not src.exists():
+            raise WorktreeError(
+                f"overlay source missing: {rel}",
+                campaign_id=campaign_id,
+                path=rel,
+            )
+        dst = dest / rel
+        if src.is_dir():
+            if dst.exists():
+                shutil.rmtree(dst)
+            shutil.copytree(src, dst)
+        else:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+
+
 def resolve_work_dir(
     campaign_dir: Path, manifest: dict[str, Any], campaign_id: str, name: str
 ) -> tuple[Path, Callable[[], None]]:
@@ -65,14 +112,21 @@ def resolve_work_dir(
     ignored = artifact.get("ignored_root")
     if isinstance(ignored, str) and ignored.startswith("ignored/research/"):
         slug = ignored.rstrip("/").split("/")[-1]
-    # Disposable worktree keeps the production branch unchanged.
-    # Evaluator still runs against campaign_dir (protected harness).
     wt = create_worktree(repo, slug=slug, name=name, campaign_id=campaign_id)
+    overlay = list(
+        dict.fromkeys(
+            [
+                *(manifest.get("mutable_paths") or []),
+                *(manifest.get("protected_paths") or []),
+            ]
+        )
+    )
+    overlay_paths(campaign_dir, wt, overlay, campaign_id=campaign_id)
 
     def _cleanup() -> None:
         remove_worktree(repo, wt, campaign_id=campaign_id)
 
-    return campaign_dir, _cleanup
+    return wt, _cleanup
 
 
 def baseline_candidate_id(campaign_dir: Path) -> str:

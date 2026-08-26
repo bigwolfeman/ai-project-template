@@ -32,7 +32,7 @@ The agent refuses this skill when the work is a spike with no campaign, a single
 3. [../research-shared/references/terminology.md](../research-shared/references/terminology.md)
 4. [../research-shared/references/prompt-contract.md](../research-shared/references/prompt-contract.md)
 5. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
-6. [../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+6. [../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
 7. [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md)
 8. [../research-shared/references/formal-methods.md](../research-shared/references/formal-methods.md)
 9. `lab/campaigns/<slug>/campaign.yaml`

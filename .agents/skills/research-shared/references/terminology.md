@@ -2,7 +2,7 @@
 
 Use these terms in skills, schemas, reports, and campaign files. Do not invent synonyms.
 
-Architecture: [Automated research campaigns](../../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md). Experiments: [docs/experiments/AGENTS.md](../../../../docs/experiments/AGENTS.md).
+Architecture: [Automated research campaigns](../../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md). Experiments: [docs/experiments/AGENTS.md](../../../../docs/experiments/AGENTS.md).
 
 ## Actors
 

@@ -241,5 +241,46 @@ class NoHardResetTests(unittest.TestCase):
         self.assertEqual(hits, [], msg="found forbidden hard-reset string in: " + ", ".join(hits))
 
 
+class OverlayPathsTests(unittest.TestCase):
+    def test_overlays_mutable_and_protected_into_worktree(self) -> None:
+        from campaign_runner.isolation import overlay_paths
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            campaign = root / "campaign"
+            work = root / "worktree"
+            (campaign / "subject").mkdir(parents=True)
+            (campaign / "eval").mkdir(parents=True)
+            work.mkdir()
+            (campaign / "subject" / "work.py").write_text("LATENCY_MS = 1\n", encoding="utf-8")
+            (campaign / "eval" / "run.py").write_text("print(1)\n", encoding="utf-8")
+            (work / "subject").mkdir()
+            (work / "subject" / "work.py").write_text("LATENCY_MS = 99\n", encoding="utf-8")
+            overlay_paths(
+                campaign,
+                work,
+                ["subject/", "eval/"],
+                campaign_id="overlay-test",
+            )
+            self.assertEqual(
+                (work / "subject" / "work.py").read_text(encoding="utf-8"),
+                "LATENCY_MS = 1\n",
+            )
+            self.assertTrue((work / "eval" / "run.py").is_file())
+
+    def test_rejects_path_escape(self) -> None:
+        from campaign_runner.errors import WorktreeError
+        from campaign_runner.isolation import overlay_paths
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            campaign = root / "campaign"
+            work = root / "worktree"
+            campaign.mkdir()
+            work.mkdir()
+            with self.assertRaises(WorktreeError):
+                overlay_paths(campaign, work, ["../outside"], campaign_id="overlay-test")
+
+
 if __name__ == "__main__":
     unittest.main()

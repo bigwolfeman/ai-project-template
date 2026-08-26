@@ -2,7 +2,7 @@
 
 The lab is the execution plane. Production code lives in `src/`. Hypotheses live in [docs/experiments/](../docs/experiments/AGENTS.md). Decisions live in [.agents/notes/](../.agents/notes/README.md).
 
-Architecture: [.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md).
+Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md).
 
 ## Spikes vs campaigns
 
@@ -46,7 +46,7 @@ This repository ships no live campaigns. Copy the template to start one.
 
 ## Campaign states
 
-States: `draft`, `ready`, `running`, `paused`, `stopped`, `completed`, `aborted`, `synthesized`, `archived`. Architecture: [Agent Note](../.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md).
+States: `draft`, `ready`, `running`, `paused`, `stopped`, `completed`, `aborted`, `synthesized`, `archived`. Architecture: [Agent Note](../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md).
 
 The runner owns state transitions when a runner exists. The agent does not return a campaign from `aborted` to `running`. After an integrity failure, the operator starts a new campaign or a reviewed revision.
 

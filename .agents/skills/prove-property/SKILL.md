@@ -32,7 +32,7 @@ The agent must refuse this skill when the claim is empirical performance or a ph
 5. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
 6. [../research-shared/references/formal-methods.md](../research-shared/references/formal-methods.md)
 7. [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md)
-8. [../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+8. [../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
 
 If constitution Status is `TEMPLATE`, the agent records that fact. The agent does not fill the constitution here.
 

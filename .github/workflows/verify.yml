@@ -24,3 +24,18 @@ jobs:
 
       - name: Run unit tests
         run: env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python -m unittest discover -s tests -q
+
+  optional-proofs:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Optional Z3 check on offline SMT sketch
+        run: |
+          if command -v z3 >/dev/null 2>&1; then
+            z3 lab/templates/proofs/examples/tile-limits.smt2
+          else
+            echo "z3 not installed; skipping live solver check"
+          fi

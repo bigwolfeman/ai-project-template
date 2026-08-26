@@ -50,5 +50,5 @@ Campaign link after copy: `lab/campaigns/<slug>/program.md` must point at this f
 ## Related
 
 - Campaign template: [lab/templates/campaign/program.md](../../../lab/templates/campaign/program.md)
-- Architecture proposal: [../../.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../../.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+- Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
 - Cookbook: [../../cookbook/running-a-campaign.md](../../cookbook/running-a-campaign.md)

@@ -38,7 +38,7 @@ The agent must refuse this skill when the operator asks to copy campaign output 
 9. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
 10. [../research-shared/references/formal-methods.md](../research-shared/references/formal-methods.md)
 11. [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md)
-12. [../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+12. [../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
 
 If constitution Status is `TEMPLATE`, the agent records that fact. The agent does not fill the constitution here. The agent does not promote into a project whose vision is still a template without operator acknowledgment of that risk.
 

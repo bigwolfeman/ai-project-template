@@ -31,7 +31,7 @@ A later skill would otherwise create `lab/campaigns/<slug>/` or `docs/experiment
 4. [../research-shared/references/terminology.md](../research-shared/references/terminology.md)
 5. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
 6. [../research-shared/references/prompt-contract.md](../research-shared/references/prompt-contract.md)
-7. [../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+7. [../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
 8. [../../../docs/cookbook/starting-a-campaign.md](../../../docs/cookbook/starting-a-campaign.md)
 9. [../research-shared/references/formal-methods.md](../research-shared/references/formal-methods.md)
 10. [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md)

@@ -61,4 +61,4 @@ Use this command when the CLI exists. Otherwise inspect `lab/campaigns/<slug>/st
 
 - [Starting a campaign](starting-a-campaign.md)
 - [Starting an experiment](starting-an-experiment.md)
-- Architecture proposal: [.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md](../../.agents/notes/proposed/architecture/2026-08-24-automated-research-campaigns.md)
+- Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
