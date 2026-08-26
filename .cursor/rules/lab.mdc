@@ -1,0 +1,16 @@
+---
+description: Lab spikes vs campaigns — tracked vs ignored paths, protected evaluator, no promotion without review.
+globs: lab/**/*
+alwaysApply: false
+---
+
+# Lab
+
+Follow [lab/AGENTS.md](../../lab/AGENTS.md).
+
+- `lab/spikes/` — informal exploration. No prior hypothesis.
+- `lab/campaigns/<slug>/` — bounded research program. Copy `lab/templates/campaign/`. If that template is absent, stop and report the missing path. Do not use the template path as a live campaign.
+- Runtime worktrees and bulky artifacts live in `ignored/research/<slug>/`.
+- Do not start a campaign run without a sealed evaluator and an explicit budget.
+- Do not run `git reset --hard` to reject a candidate.
+- Do not promote lab work into `src/` without human review.

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "best.schema.json",
+  "title": "Best-candidate projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "campaign_id", "candidate_id"],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "candidate_id": { "type": ["string", "null"] },
+    "source": { "type": "string", "enum": ["none", "baseline", "accepted_trial"] },
+    "advanced_at": { "type": ["string", "null"] },
+    "trial_id": { "type": ["string", "null"] }
+  }
+}

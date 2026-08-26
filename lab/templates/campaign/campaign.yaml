@@ -1,0 +1,114 @@
+schema_version: "1.0.0"
+campaign_id: example-generic-command
+title: Example generic-command campaign
+research_question_links:
+  - docs/experiments/planned/2026-08-24-example-generic-command.md
+mutable_paths:
+  - subject/
+protected_paths:
+  - eval/
+  - evaluator.lock.json
+  - campaign.yaml
+evaluator_command:
+  - python
+  - eval/run.py
+evaluator_lock_path: evaluator.lock.json
+adapter: generic_command
+environment_command:
+  - python
+  - --version
+measurement_schema:
+  measurements:
+    - name: tests_passed
+      unit: "1"
+      direction: maximize
+      value_type: boolean
+      missing_value_policy: treat_as_invalid
+      comparison_tolerance: 0
+    - name: latency_ms
+      unit: millisecond
+      direction: minimize
+      value_type: number
+      valid_range:
+        min: 0
+        max: 600000
+      missing_value_policy: treat_as_invalid
+      comparison_tolerance: 1
+hard_constraints:
+  - name: tests_pass
+    measurement: tests_passed
+    op: eq
+    value: true
+comparator_policy:
+  strategy: hard_constraints_then_objectives
+  objectives:
+    - measurement: latency_ms
+      direction: minimize
+  equivalence_margin:
+    latency_ms: 1.0
+replication_policy:
+  seed_selection: declared_list
+  seeds:
+    - 1
+    - 2
+    - 3
+  min_repeats: 1
+  max_repeats: 3
+  confidence_method: mean_stddev
+  equivalence_margin: 1.0
+  early_stopping_rule: none
+  single_noisy_run_advances_baseline: false
+complexity_policy:
+  measures:
+    - name: changed_lines
+      unit: line
+  treatment: lexicographic_tie_break
+branch_worktree_policy:
+  isolation: git_worktree
+  research_branch_prefix: research/example-generic-command
+  production_branch: main
+  refuse_dirty_protected_or_mutable_paths: true
+exploration_policy:
+  mode: greedy_ratchet
+  max_branch_depth: 1
+  max_simultaneous_branches: 1
+  abandon_branch_after_rejected: 3
+  diversity_required: false
+  periodic_return_to_unresolved_issues: true
+mutation_policy:
+  included_paths:
+    - subject/
+  excluded_paths:
+    - eval/
+  max_changed_files: 20
+  max_changed_lines: 400
+  allowed_dependency_changes: false
+  allowed_generated_files: false
+  schema_changes_permitted: false
+resource_budget:
+  max_wall_clock_seconds: 3600
+  max_trial_count: 20
+  max_consecutive_crashes: 3
+  max_stagnation_trials: 5
+stop_conditions:
+  - type: budget_exhausted
+  - type: stagnation
+    threshold: 5
+  - type: consecutive_crashes
+    threshold: 3
+artifact_policy:
+  ignored_root: ignored/research/example-generic-command
+  retain_rejected_candidate_commits: true
+  compact_ledger_after_synthesis: true
+  warn_ledger_bytes: 10485760
+network_policy:
+  mode: deny
+  allowed_hosts: []
+secret_policy:
+  allow_secret_values_in_logs: false
+  secret_refs: []
+promotion_policy:
+  requires_human_review: true
+  requires_agent_note: true
+  requires_reproduction: true
+  destination_root: src

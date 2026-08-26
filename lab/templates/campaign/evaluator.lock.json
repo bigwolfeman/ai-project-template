@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "example-generic-command",
+  "locked_at": "2026-08-24T00:00:00Z",
+  "resources": [
+    {
+      "path": "eval/run.py",
+      "digest_algorithm": "sha256",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "campaign.yaml",
+      "digest_algorithm": "sha256",
+      "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

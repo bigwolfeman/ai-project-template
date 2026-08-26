@@ -1,5 +1,5 @@
 ---
-description: Standing orders — read AGENTS.md, constitution, and experiment rules before changing layout or running experiments.
+description: Standing orders — read AGENTS.md, constitution, lab rules, and experiment rules before changing layout or running research.
 alwaysApply: true
 ---
 
@@ -12,6 +12,8 @@ Also read:
 1. [AGENTS.md](../../AGENTS.md)
 
 Non-trivial changes need an Agent Note under `.agents/notes/{lifecycle}/{class}/`.
+
+Before automated research, classify the work as a spike, an experiment, or a campaign. Follow [lab/AGENTS.md](../../lab/AGENTS.md) for lab work. Campaign toolkit: [.agents/skills/README.md](../../.agents/skills/README.md).
 
 Experiments: predictions are committed in `docs/experiments/planned/` before any run. Never add `## Results` there. Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md) and `.agents/skills/run-experiment/SKILL.md`.
 

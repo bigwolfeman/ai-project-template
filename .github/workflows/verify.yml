@@ -1,0 +1,26 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify template layout
+        run: env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python scripts/verify_template.py
+
+      - name: Verify campaign template
+        run: env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python scripts/verify_campaign.py lab/templates/campaign
+
+      - name: Run unit tests
+        run: env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python -m unittest discover -s tests -q

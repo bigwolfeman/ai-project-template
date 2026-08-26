@@ -24,10 +24,11 @@ Then follow [docs/cookbook/starting-a-project.md](docs/cookbook/starting-a-proje
 | How-tos | [docs/cookbook/](docs/cookbook/starting-a-project.md) |
 | Experiments | [docs/experiments/](docs/experiments/README.md) — **predictions first** |
 | Escaped bugs | [docs/postmortem/](docs/postmortem/README.md) |
-| Spikes | `lab/` |
+| Spikes | [lab/spikes/](lab/spikes/README.md) — informal exploration; no prior hypothesis |
+| Campaigns | [lab/campaigns/](lab/campaigns/README.md) — bounded programs with trials |
 | Production code | `src/` |
 
-`Incomplete/` and `ignored/` are gitignored. Put local clones and bulky artifacts in `ignored/`.
+`Incomplete/` and `ignored/` are gitignored. Put local clones and bulky artifacts in `ignored/`. Campaign worktrees live under `ignored/research/<slug>/`.
 
 ## Verify
 

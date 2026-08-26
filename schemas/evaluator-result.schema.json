@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evaluator-result.schema.json",
+  "title": "Evaluator result document",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "trial_id",
+    "candidate_id",
+    "evaluator_digest",
+    "protocol_digest",
+    "environment_digest",
+    "started_at",
+    "ended_at",
+    "measurements",
+    "hard_constraint_results",
+    "runtime_resource_use",
+    "artifact_references",
+    "evaluator_status",
+    "diagnostic_messages"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "trial_id": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+    "candidate_id": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+    "evaluator_digest": { "$ref": "defs.schema.json#/$defs/sha256Digest" },
+    "protocol_digest": { "$ref": "defs.schema.json#/$defs/sha256Digest" },
+    "environment_digest": { "$ref": "defs.schema.json#/$defs/sha256Digest" },
+    "started_at": { "$ref": "defs.schema.json#/$defs/timestamp" },
+    "ended_at": { "$ref": "defs.schema.json#/$defs/timestamp" },
+    "measurements": {
+      "type": "object",
+      "additionalProperties": {
+        "type": ["number", "integer", "boolean", "string", "object", "array", "null"]
+      }
+    },
+    "hard_constraint_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "passed"],
+        "properties": {
+          "name": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+          "passed": { "type": "boolean" },
+          "detail": { "type": "string" }
+        }
+      }
+    },
+    "runtime_resource_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["wall_clock_seconds"],
+      "properties": {
+        "wall_clock_seconds": { "type": "number", "minimum": 0 },
+        "max_rss_bytes": { "type": "integer", "minimum": 0 },
+        "cpu_seconds": { "type": "number", "minimum": 0 }
+      }
+    },
+    "artifact_references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "digest"],
+        "properties": {
+          "path": { "$ref": "defs.schema.json#/$defs/pathString" },
+          "digest": { "$ref": "defs.schema.json#/$defs/sha256Digest" },
+          "media_type": { "type": "string" }
+        }
+      }
+    },
+    "evaluator_status": {
+      "type": "string",
+      "enum": ["success", "error", "timeout", "crash"]
+    },
+    "diagnostic_messages": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "trial_outcome": { "$ref": "defs.schema.json#/$defs/trialOutcome" },
+    "comparator_outcome": { "$ref": "defs.schema.json#/$defs/comparatorOutcome" }
+  }
+}

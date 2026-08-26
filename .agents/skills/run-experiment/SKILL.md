@@ -5,7 +5,9 @@ description: Use when proposing, running, or writing up an experiment. Enforces 
 
 # Run an experiment
 
-Read [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md) first. Do not start from `lab/` after the fact.
+Read [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md) first. Do not start from `lab/spikes/` after the fact.
+
+This skill covers one experiment file. A campaign that coordinates several experiments follows [.agents/skills/README.md](../README.md). Informal exploration stays in `lab/spikes/`.
 
 ## Before any run
 
@@ -25,9 +27,11 @@ If the method must change in a way that invalidates Predictions, abandon this ru
 
 1. Copy the planned body into the completed skeleton from `templates/experiment-completed.md`.
 2. Fill Results, Verdict, Updated hypothesis. Verdict is about the claim, not "the script exited 0".
-3. Move the file to `successes/` or `failures/`. Delete the `planned/` copy. Set Status to match the folder.
+3. Move the file to `successes/` when the hypothesis is supported. Move it to `failures/` when the hypothesis is falsified or the protocol failed. Delete the `planned/` copy. Set Status to match the folder.
 4. If design should change, add an Agent Note in the same change.
 5. Run `python scripts/verify_template.py`.
+
+Hypothesis verdicts are `supported`, `falsified`, and `unresolved`. Trial outcomes (`accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`) belong on the campaign ledger. Do not use trial outcomes as Verdict text.
 
 ## Forbidden recoveries
 

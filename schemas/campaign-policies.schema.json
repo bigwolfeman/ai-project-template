@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-policies.schema.json",
+  "title": "Campaign manifest policy objects",
+  "$defs": {
+    "hardConstraint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "measurement", "op", "value"],
+      "properties": {
+        "name": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+        "measurement": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+        "op": { "type": "string", "enum": ["eq", "neq", "lt", "lte", "gt", "gte", "in_range"] },
+        "value": { "type": ["boolean", "number", "string", "array"] }
+      }
+    },
+    "comparatorPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "objectives", "equivalence_margin"],
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["hard_constraints_then_objectives", "pareto", "human_review"]
+        },
+        "objectives": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["measurement", "direction"],
+            "properties": {
+              "measurement": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+              "direction": { "$ref": "defs.schema.json#/$defs/direction" }
+            }
+          }
+        },
+        "equivalence_margin": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0 }
+        }
+      }
+    },
+    "replicationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "seed_selection",
+        "seeds",
+        "min_repeats",
+        "max_repeats",
+        "confidence_method",
+        "equivalence_margin",
+        "early_stopping_rule",
+        "single_noisy_run_advances_baseline"
+      ],
+      "properties": {
+        "seed_selection": { "type": "string", "enum": ["declared_list", "random_draws"] },
+        "seeds": { "type": "array", "minItems": 1, "items": { "type": "integer" } },
+        "min_repeats": { "type": "integer", "minimum": 1 },
+        "max_repeats": { "type": "integer", "minimum": 1 },
+        "confidence_method": { "type": "string", "enum": ["mean_stddev", "interval", "none"] },
+        "equivalence_margin": { "type": "number", "minimum": 0 },
+        "early_stopping_rule": { "type": "string", "enum": ["none", "futility", "efficacy"] },
+        "single_noisy_run_advances_baseline": { "type": "boolean" }
+      }
+    },
+    "complexityPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measures", "treatment"],
+      "properties": {
+        "measures": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["name", "unit"],
+            "properties": {
+              "name": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+              "unit": { "$ref": "defs.schema.json#/$defs/nonEmptyString" }
+            }
+          }
+        },
+        "treatment": {
+          "type": "string",
+          "enum": ["hard_limit", "lexicographic_tie_break", "weighted_objective", "human_review"]
+        }
+      }
+    },
+    "branchWorktreePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "isolation",
+        "research_branch_prefix",
+        "production_branch",
+        "refuse_dirty_protected_or_mutable_paths"
+      ],
+      "properties": {
+        "isolation": { "type": "string", "enum": ["git_worktree", "none"] },
+        "research_branch_prefix": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+        "production_branch": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+        "refuse_dirty_protected_or_mutable_paths": { "type": "boolean" }
+      }
+    },
+    "explorationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "max_branch_depth",
+        "max_simultaneous_branches",
+        "abandon_branch_after_rejected",
+        "diversity_required",
+        "periodic_return_to_unresolved_issues"
+      ],
+      "properties": {
+        "mode": { "type": "string", "enum": ["greedy_ratchet", "bounded_branch"] },
+        "max_branch_depth": { "type": "integer", "minimum": 1 },
+        "max_simultaneous_branches": { "type": "integer", "minimum": 1 },
+        "abandon_branch_after_rejected": { "type": "integer", "minimum": 1 },
+        "diversity_required": { "type": "boolean" },
+        "periodic_return_to_unresolved_issues": { "type": "boolean" }
+      }
+    },
+    "mutationPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "included_paths",
+        "excluded_paths",
+        "max_changed_files",
+        "max_changed_lines",
+        "allowed_dependency_changes",
+        "allowed_generated_files",
+        "schema_changes_permitted"
+      ],
+      "properties": {
+        "included_paths": { "$ref": "defs.schema.json#/$defs/pathList" },
+        "excluded_paths": {
+          "type": "array",
+          "items": { "$ref": "defs.schema.json#/$defs/pathString" }
+        },
+        "max_changed_files": { "type": "integer", "minimum": 1 },
+        "max_changed_lines": { "type": "integer", "minimum": 1 },
+        "allowed_dependency_changes": { "type": "boolean" },
+        "allowed_generated_files": { "type": "boolean" },
+        "schema_changes_permitted": { "type": "boolean" }
+      }
+    },
+    "resourceBudget": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "max_wall_clock_seconds": { "type": "integer", "minimum": 1 },
+        "max_trial_count": { "type": "integer", "minimum": 1 },
+        "max_cost": { "type": "number", "minimum": 0 },
+        "max_api_calls": { "type": "integer", "minimum": 1 },
+        "max_compute_seconds": { "type": "integer", "minimum": 1 },
+        "max_storage_bytes": { "type": "integer", "minimum": 1 },
+        "max_consecutive_crashes": { "type": "integer", "minimum": 1 },
+        "max_consecutive_rejected": { "type": "integer", "minimum": 1 },
+        "max_stagnation_seconds": { "type": "integer", "minimum": 1 },
+        "max_stagnation_trials": { "type": "integer", "minimum": 1 }
+      },
+      "allOf": [
+        {
+          "anyOf": [
+            { "required": ["max_wall_clock_seconds"] },
+            { "required": ["max_trial_count"] },
+            { "required": ["max_cost"] },
+            { "required": ["max_api_calls"] },
+            { "required": ["max_compute_seconds"] },
+            { "required": ["max_storage_bytes"] }
+          ]
+        },
+        {
+          "anyOf": [
+            { "required": ["max_consecutive_crashes"] },
+            { "required": ["max_consecutive_rejected"] },
+            { "required": ["max_stagnation_seconds"] },
+            { "required": ["max_stagnation_trials"] }
+          ]
+        }
+      ]
+    },
+    "stopCondition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "budget_exhausted",
+            "max_trials",
+            "consecutive_rejected",
+            "consecutive_crashes",
+            "stagnation",
+            "operator_stop",
+            "goal_met",
+            "integrity_failure"
+          ]
+        },
+        "threshold": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "artifactPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ignored_root",
+        "retain_rejected_candidate_commits",
+        "compact_ledger_after_synthesis",
+        "warn_ledger_bytes"
+      ],
+      "properties": {
+        "ignored_root": { "$ref": "defs.schema.json#/$defs/pathString" },
+        "retain_rejected_candidate_commits": { "type": "boolean" },
+        "compact_ledger_after_synthesis": { "type": "boolean" },
+        "warn_ledger_bytes": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "networkPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "allowed_hosts"],
+      "properties": {
+        "mode": { "type": "string", "enum": ["deny", "allowlist", "unrestricted"] },
+        "allowed_hosts": {
+          "type": "array",
+          "items": { "$ref": "defs.schema.json#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "secretPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allow_secret_values_in_logs", "secret_refs"],
+      "properties": {
+        "allow_secret_values_in_logs": { "type": "boolean" },
+        "secret_refs": {
+          "type": "array",
+          "items": { "$ref": "defs.schema.json#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "promotionPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requires_human_review",
+        "requires_agent_note",
+        "requires_reproduction",
+        "destination_root"
+      ],
+      "properties": {
+        "requires_human_review": { "type": "boolean" },
+        "requires_agent_note": { "type": "boolean" },
+        "requires_reproduction": { "type": "boolean" },
+        "destination_root": { "$ref": "defs.schema.json#/$defs/pathString" }
+      }
+    }
+  }
+}

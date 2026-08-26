@@ -1,3 +1,10 @@
 # Lab
 
-Unstructured spikes. No hypothesis required. Promote to `src/` with tests, or delete. Do not rewrite a spike as an experiment after seeing the outcome; that belongs in a new `docs/experiments/planned/` file written *before* the next run. Cross link documentation, and when a hard won solution is made that makes it into src/ code, reference the related documents as an inline comment.
+The lab is the execution plane. It is not production. It is not the scientific record.
+
+| Area | Job |
+|---|---|
+| [spikes/](spikes/README.md) | Informal exploration. No prior hypothesis. |
+| [campaigns/](campaigns/README.md) | Bounded research programs with trials. |
+
+Rules: [AGENTS.md](AGENTS.md). Hypotheses: [docs/experiments/](../docs/experiments/README.md). Production: `src/`.

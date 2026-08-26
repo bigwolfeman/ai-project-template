@@ -1,0 +1,1 @@
+{"schema_version": "1.0.0", "event_id": "evt-00000001", "event_type": "campaign_created", "campaign_id": "example-generic-command", "timestamp": "2026-08-24T00:00:00Z", "actor": "human", "prior_event_digest": null, "payload": {"title": "Example generic-command campaign"}}

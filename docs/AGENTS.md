@@ -1,6 +1,6 @@
 # AGENTS.md — Documentation standard
 
-Placement, document kinds, and slop. Agent Notes stay outside this file's structural pass; they follow [.agents/notes/README.md](../.agents/notes/README.md). Experiments follow [experiments/AGENTS.md](experiments/AGENTS.md).
+Placement, document kinds, and slop. Agent Notes stay outside this file's structural pass; they follow [.agents/notes/README.md](../.agents/notes/README.md). Experiments follow [experiments/AGENTS.md](experiments/AGENTS.md). Lab work follows [lab/AGENTS.md](../lab/AGENTS.md).
 
 ## Document kinds
 
@@ -16,13 +16,15 @@ A document describes its own subject. Children are named by purpose only; link t
 | Subtree `AGENTS.md` | Orders for that subtree only | Rules already at root |
 | `docs/constitution.md` | This project's vision and principles (filled with the user; the shipped file is a template) | Standing orders, how-tos, experiment logs |
 | Agent Notes | Why, what was given up, verification | Run logs, incident timelines |
-| `docs/experiments/` | Hypothesis, predictions, method, results, updated belief | Architecture decisions |
+| `docs/experiments/` | Hypothesis, predictions, method, results, updated belief | Architecture decisions, trial ledgers |
 | `docs/experiments/algorithms/` | Algorithm writeups and notebooks | Experiment run records |
 | `docs/postmortem/` | Incident: what broke, why nets missed, guardrails | Design alternatives |
 | `docs/cookbook/` | Numbered how-tos | Rationale (link the Agent Note) |
+| `lab/spikes/` | Informal exploration with no prior hypothesis | Experiment writeups, production code |
+| `lab/campaigns/` | Campaign contract, ledger projections, reports | Copied predictions, production code |
 | Package or `src/` README | Contract of that code | JSDoc restatement |
 
-Placement: bugs that escaped → postmortems; rationale → Agent Notes; procedures → cookbooks; measured inquiry → experiments; standing orders → root `AGENTS.md`.
+Placement: bugs that escaped → postmortems; rationale → Agent Notes; procedures → cookbooks; measured inquiry → experiments; informal exploration → spikes; bounded automated research → campaigns; standing orders → root `AGENTS.md`.
 
 ## Writing rules
 
@@ -30,6 +32,7 @@ Placement: bugs that escaped → postmortems; rationale → Agent Notes; procedu
 - One idea per paragraph. Prefer links over restatement.
 - Comments state contracts (failure, timing, ownership), not reasoning transcripts.
 - Hunt slop: the same rule in two homes; "previously/now"; status annotations that rot; invented alternatives; emphasis on every sentence.
+- For instructions and reports, follow [.agents/skills/research-shared/references/ste100-style.md](../.agents/skills/research-shared/references/ste100-style.md). Do not claim official conformance.
 
 ## Cross-references
 

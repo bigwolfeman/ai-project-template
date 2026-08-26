@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign.schema.json",
+  "title": "Research campaign manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "campaign_id",
+    "title",
+    "research_question_links",
+    "mutable_paths",
+    "protected_paths",
+    "evaluator_command",
+    "evaluator_lock_path",
+    "environment_command",
+    "measurement_schema",
+    "hard_constraints",
+    "comparator_policy",
+    "replication_policy",
+    "complexity_policy",
+    "branch_worktree_policy",
+    "exploration_policy",
+    "mutation_policy",
+    "resource_budget",
+    "stop_conditions",
+    "artifact_policy",
+    "network_policy",
+    "secret_policy",
+    "promotion_policy"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "title": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+    "research_question_links": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "defs.schema.json#/$defs/pathString" }
+    },
+    "mutable_paths": { "$ref": "defs.schema.json#/$defs/pathList" },
+    "protected_paths": { "$ref": "defs.schema.json#/$defs/pathList" },
+    "evaluator_command": { "$ref": "defs.schema.json#/$defs/argv" },
+    "evaluator_lock_path": { "$ref": "defs.schema.json#/$defs/pathString" },
+    "adapter": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Registered adapter name. Default when omitted: generic_command."
+    },
+    "environment_command": { "$ref": "defs.schema.json#/$defs/argv" },
+    "measurement_schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["measurements"],
+      "properties": {
+        "measurements": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "defs.schema.json#/$defs/measurementDef" }
+        }
+      }
+    },
+    "hard_constraints": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "campaign-policies.schema.json#/$defs/hardConstraint" }
+    },
+    "comparator_policy": { "$ref": "campaign-policies.schema.json#/$defs/comparatorPolicy" },
+    "replication_policy": { "$ref": "campaign-policies.schema.json#/$defs/replicationPolicy" },
+    "complexity_policy": { "$ref": "campaign-policies.schema.json#/$defs/complexityPolicy" },
+    "branch_worktree_policy": { "$ref": "campaign-policies.schema.json#/$defs/branchWorktreePolicy" },
+    "exploration_policy": { "$ref": "campaign-policies.schema.json#/$defs/explorationPolicy" },
+    "mutation_policy": { "$ref": "campaign-policies.schema.json#/$defs/mutationPolicy" },
+    "resource_budget": { "$ref": "campaign-policies.schema.json#/$defs/resourceBudget" },
+    "stop_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "campaign-policies.schema.json#/$defs/stopCondition" }
+    },
+    "artifact_policy": { "$ref": "campaign-policies.schema.json#/$defs/artifactPolicy" },
+    "network_policy": { "$ref": "campaign-policies.schema.json#/$defs/networkPolicy" },
+    "secret_policy": { "$ref": "campaign-policies.schema.json#/$defs/secretPolicy" },
+    "promotion_policy": { "$ref": "campaign-policies.schema.json#/$defs/promotionPolicy" }
+  }
+}

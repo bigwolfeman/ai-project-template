@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "baseline.schema.json",
+  "title": "Baseline projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "campaign_id", "sealed", "candidate_id", "measurements"],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "sealed": { "type": "boolean" },
+    "candidate_id": { "type": ["string", "null"] },
+    "established_at": { "type": ["string", "null"] },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "value"],
+        "properties": {
+          "name": { "$ref": "defs.schema.json#/$defs/nonEmptyString" },
+          "value": { "type": ["number", "integer", "boolean", "string", "null"] },
+          "stddev": { "type": "number", "minimum": 0 },
+          "n": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "uncertainty_note": { "type": ["string", "null"] }
+  }
+}

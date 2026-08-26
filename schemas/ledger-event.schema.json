@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ledger-event.schema.json",
+  "title": "Append-only campaign ledger event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "event_type",
+    "campaign_id",
+    "timestamp",
+    "actor",
+    "prior_event_digest",
+    "payload"
+  ],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "event_id": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9._-]*$"
+    },
+    "event_type": { "$ref": "defs.schema.json#/$defs/eventType" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "timestamp": { "$ref": "defs.schema.json#/$defs/timestamp" },
+    "actor": { "$ref": "defs.schema.json#/$defs/actor" },
+    "prior_event_digest": {
+      "type": ["string", "null"],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string" },
+        "reason": { "type": "string" },
+        "trial_id": { "type": "string" },
+        "candidate_id": { "type": "string" },
+        "parent_candidate_id": { "type": "string" },
+        "trial_outcome": { "$ref": "defs.schema.json#/$defs/trialOutcome" },
+        "comparator_outcome": { "$ref": "defs.schema.json#/$defs/comparatorOutcome" },
+        "hypothesis_id": { "type": "string" },
+        "issue_id": { "type": "string" },
+        "stop_condition": { "type": "string" }
+      }
+    }
+  }
+}

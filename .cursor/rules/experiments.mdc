@@ -1,5 +1,5 @@
 ---
-description: Scientific-method experiment files — predictions before results, path-encoded status.
+description: Scientific-method experiment files — predictions before results, path-encoded status. Trial outcomes are not hypothesis verdicts.
 globs: docs/experiments/**/*.md
 alwaysApply: false
 ---
@@ -13,4 +13,6 @@ Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md).
 - `algorithms/` — method writeups, not runs.
 - `results/` — artifacts named after the run slug.
 
-Do not edit Predictions after artifacts exist. Do not backfill a planned file from a completed run.
+Hypothesis verdicts are `supported`, `falsified`, and `unresolved`. Trial outcomes are `accepted`, `rejected`, `invalid`, `inconclusive`, and `crashed`. Do not mix these vocabularies.
+
+A campaign `program.md` must not copy predictions. Do not edit Predictions after artifacts exist. Do not backfill a planned file from a completed run.

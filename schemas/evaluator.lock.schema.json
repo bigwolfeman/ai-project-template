@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evaluator.lock.schema.json",
+  "title": "Evaluator lock file",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "campaign_id", "locked_at", "resources"],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "locked_at": { "$ref": "defs.schema.json#/$defs/timestamp" },
+    "resources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["path", "digest_algorithm", "digest"],
+        "properties": {
+          "path": { "$ref": "defs.schema.json#/$defs/pathString" },
+          "digest_algorithm": { "type": "string", "enum": ["sha256"] },
+          "digest": { "$ref": "defs.schema.json#/$defs/sha256Digest" }
+        }
+      }
+    }
+  }
+}

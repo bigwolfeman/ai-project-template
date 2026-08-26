@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "tiny-generic",
+  "state": "draft",
+  "updated_at": "2026-08-25T00:00:00Z",
+  "stop_reason": null,
+  "baseline_id": null,
+  "best_candidate_id": null
+}

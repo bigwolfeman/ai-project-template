@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campaign-state.schema.json",
+  "title": "Campaign state projection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "campaign_id", "state", "updated_at"],
+  "properties": {
+    "schema_version": { "$ref": "defs.schema.json#/$defs/schemaVersion" },
+    "campaign_id": { "$ref": "defs.schema.json#/$defs/campaignId" },
+    "state": { "$ref": "defs.schema.json#/$defs/campaignState" },
+    "updated_at": { "$ref": "defs.schema.json#/$defs/timestamp" },
+    "stop_reason": { "type": ["string", "null"] },
+    "baseline_id": { "type": ["string", "null"] },
+    "best_candidate_id": { "type": ["string", "null"] }
+  }
+}

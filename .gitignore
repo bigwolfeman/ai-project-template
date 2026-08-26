@@ -1,4 +1,8 @@
+# Operator leftovers. Never commit.
 Incomplete/
+
+# Local clones, bulky artifacts, and campaign runtime. Never commit.
+# This pattern covers ignored/research/<slug>/{worktrees,artifacts,logs,caches,temporary-data}/.
 ignored/
 
 .env

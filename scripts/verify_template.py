@@ -8,6 +8,12 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+_SCRIPTS = Path(__file__).resolve().parent
+if str(_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS))
+
+from verify_campaign import check_campaign_artifacts, check_optional_research_skills
+
 NOTE_CLASSES = (
     "feature",
     "bug-fix",
@@ -214,6 +220,8 @@ def main() -> int:
     check_required_dirs(errors)
     check_agent_notes(errors)
     check_experiments(errors)
+    check_campaign_artifacts(errors, ROOT)
+    check_optional_research_skills(errors, ROOT)
     if errors.items:
         print("verify_template.py failed:", file=sys.stderr)
         for item in errors.items:

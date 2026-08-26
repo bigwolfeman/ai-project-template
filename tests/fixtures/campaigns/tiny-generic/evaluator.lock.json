@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0.0",
+  "campaign_id": "tiny-generic",
+  "locked_at": "2026-08-25T00:00:00Z",
+  "resources": [
+    {
+      "path": "eval/run.py",
+      "digest_algorithm": "sha256",
+      "digest": "8240a0008e353f47e1b0589ca9996ebbdf0b95f3a5c16b0aae3a09fe138f410c"
+    },
+    {
+      "path": "campaign.yaml",
+      "digest_algorithm": "sha256",
+      "digest": "ccb66e8dbf789d082305915b38bae1f0a1ad76dcdac9955d152ad16cc702776b"
+    }
+  ]
+}

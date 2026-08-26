@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "defs.schema.json",
+  "title": "Shared research-campaign definitions",
+  "$defs": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "campaignId": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pathString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pathList": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/pathString" }
+    },
+    "argv": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "timestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "sha256Digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "campaignState": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "ready",
+        "running",
+        "paused",
+        "stopped",
+        "completed",
+        "aborted",
+        "synthesized",
+        "archived"
+      ]
+    },
+    "trialOutcome": {
+      "type": "string",
+      "enum": ["accepted", "rejected", "invalid", "inconclusive", "crashed"]
+    },
+    "hypothesisState": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "planned",
+        "testing",
+        "supported",
+        "falsified",
+        "unresolved",
+        "superseded",
+        "abandoned"
+      ]
+    },
+    "issueState": {
+      "type": "string",
+      "enum": [
+        "open",
+        "investigating",
+        "blocked",
+        "mitigated",
+        "resolved",
+        "wont-fix",
+        "superseded"
+      ]
+    },
+    "comparatorOutcome": {
+      "type": "string",
+      "enum": ["dominates", "equivalent", "regresses", "mixed", "invalid", "inconclusive"]
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["minimize", "maximize", "none"]
+    },
+    "actor": {
+      "type": "string",
+      "enum": ["human", "agent", "runner"]
+    },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "campaign_created",
+        "campaign_validated",
+        "baseline_started",
+        "baseline_completed",
+        "hypothesis_registered",
+        "issue_created",
+        "candidate_created",
+        "trial_started",
+        "trial_completed",
+        "trial_crashed",
+        "candidate_accepted",
+        "candidate_rejected",
+        "candidate_invalid",
+        "candidate_inconclusive",
+        "best_advanced",
+        "budget_updated",
+        "campaign_paused",
+        "campaign_resumed",
+        "campaign_stopped",
+        "campaign_aborted",
+        "campaign_completed",
+        "synthesis_recorded",
+        "promotion_proposed",
+        "campaign_archived"
+      ]
+    },
+    "measurementDef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "unit",
+        "direction",
+        "value_type",
+        "missing_value_policy",
+        "comparison_tolerance"
+      ],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "unit": { "$ref": "#/$defs/nonEmptyString" },
+        "direction": { "$ref": "#/$defs/direction" },
+        "value_type": {
+          "type": "string",
+          "enum": ["number", "integer", "boolean", "categorical", "interval", "distribution", "proof"]
+        },
+        "valid_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          }
+        },
+        "missing_value_policy": {
+          "type": "string",
+          "enum": ["treat_as_invalid", "treat_as_worst", "skip_comparison"]
+        },
+        "comparison_tolerance": { "type": "number", "minimum": 0 }
+      }
+    }
+  }
+}
