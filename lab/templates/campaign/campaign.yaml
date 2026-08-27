@@ -2,7 +2,7 @@ schema_version: "1.0.0"
 campaign_id: example-generic-command
 title: Example generic-command campaign
 research_question_links:
-  - docs/experiments/planned/2026-08-24-example-generic-command.md
+  - lab/experiments/planned/2026-08-24-example-generic-command.md
 mutable_paths:
   - subject/
 protected_paths:

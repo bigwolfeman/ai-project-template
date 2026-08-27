@@ -34,7 +34,7 @@ There is no spike skill.
 
 The agent has one falsifiable claim. The agent can write predictions before any run. The work does not need a protected evaluator loop or a trial ledger.
 
-The agent uses [run-experiment](run-experiment/SKILL.md). Records live under `docs/experiments/`.
+The agent uses [run-experiment](run-experiment/SKILL.md). Records live under `lab/experiments/`.
 
 ### Campaign
 
@@ -56,7 +56,7 @@ The agent must not run an unbounded loop. The agent must not use `git reset --ha
 |---|---|---|---|---|
 | [research-shared](research-shared/SKILL.md) | Shared research rules. | The agent writes or reviews research skills, campaigns, or evidence. | The current research task. | No workflow product. The agent applies the linked references. |
 | [maintain-docs](maintain-docs/SKILL.md) | Place facts once. Archive Agent Notes. | The agent writes or audits docs or notes. | Document or note path. Verifier output. | Correct placement. Passing verifier. |
-| [run-experiment](run-experiment/SKILL.md) | One measured inquiry. Predictions first. | The agent proposes, runs, or writes up an experiment. | Question, hypothesis, predictions, method. | Planned or completed file under `docs/experiments/`. |
+| [run-experiment](run-experiment/SKILL.md) | One measured inquiry. Predictions first. | The agent proposes, runs, or writes up an experiment. | Question, hypothesis, predictions, method. | Planned or completed file under `lab/experiments/`. |
 | [setup-campaign](setup-campaign/SKILL.md) | Classify work. Create campaign. Seal evaluator. | Research type unclear, or a campaign must be designed. | Operator goal. Constraints. Metrics. | Classification, or `program.md` / `campaign.yaml` / lock input. |
 | [run-campaign](run-campaign/SKILL.md) | Baseline, trials, evaluate, diagnose, issues, valley. | Setup complete. Budget remains. | Campaign contract. Sealed lock. Candidates. | Trial events. Ready/blocked baseline. Stop or continue. |
 | [close-campaign](close-campaign/SKILL.md) | Audit, synthesize, optional promote. | Campaign stopped, or operator requests audit or promotion. | Ledger. Experiments. Digests. | Audit verdict. Synthesis report. Promotion package. |

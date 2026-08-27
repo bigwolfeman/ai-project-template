@@ -161,7 +161,7 @@ Blockers: none for a sketch.
 Handoff: lab/spikes/fluid-boundary-ca/. Stop. Planned experiment via run-experiment before quantitative testing.
 ```
 
-Spike README (if written): Informal sketch. No hypothesis. Promotion requires `docs/experiments/planned/` with Predictions before any measurement.
+Spike README (if written): Informal sketch. No hypothesis. Promotion requires `lab/experiments/planned/` with Predictions before any measurement.
 
 ### Stop behavior
 

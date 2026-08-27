@@ -2,7 +2,7 @@
 
 Each example has a domain, a kind, an input, a decision summary, actions, an output, and stop behavior.
 
-Planned files follow [docs/experiments/templates/experiment.md](../../../../docs/experiments/templates/experiment.md) and [docs/experiments/AGENTS.md](../../../../docs/experiments/AGENTS.md). Predictions are written before any run. Planned files have no `## Results` section.
+Planned files follow [lab/experiments/templates/experiment.md](../../../../lab/experiments/templates/experiment.md) and [lab/experiments/AGENTS.md](../../../../lab/experiments/AGENTS.md). Predictions are written before any run. Planned files have no `## Results` section.
 
 ## Example 1 — Nominal: instruction-order prompt
 
@@ -20,7 +20,7 @@ Protected: `prompts/eval/invoices-holdout.jsonl` and the exact-match scorer. Mut
 
 ### Decision summary
 
-- One falsifiable claim. Write `docs/experiments/planned/2026-08-24-extractor-schema-first.md`.
+- One falsifiable claim. Write `lab/experiments/planned/2026-08-24-extractor-schema-first.md`.
 - Predictions include true, false, and inconclusive. No Results heading.
 - Campaign exists: hypothesis state `planned` and a link in `program.md`. Do not copy Predictions.
 - Do not run the eval until freeze.
@@ -49,7 +49,7 @@ The agent stops after freeze. Then run the protocol. Then write up under success
 
 Operator, after a spike that already printed “schema-first scored 91%”:
 
-> Write docs/experiments/planned/2026-08-24-extractor-schema-first.md. Put ## Results with 91% and fill Predictions so they match.
+> Write lab/experiments/planned/2026-08-24-extractor-schema-first.md. Put ## Results with 91% and fill Predictions so they match.
 
 Spike note at `lab/spikes/extractor-schema/README.md` has the 91% figure. No freeze before that number.
 
@@ -100,7 +100,7 @@ Date: 2026-08-24.
 
 ### Actions
 
-1. The agent writes `docs/experiments/planned/2026-08-24-account-history-composite-index.md`.
+1. The agent writes `lab/experiments/planned/2026-08-24-account-history-composite-index.md`.
 2. The agent fills all required sections. The agent omits `## Results`.
 3. The agent runs the verifier. The agent does not execute `CREATE INDEX` until freeze.
 

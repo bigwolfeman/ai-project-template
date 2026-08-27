@@ -1,6 +1,6 @@
 # Proof plan
 
-Copy this file into `lab/campaigns/<slug>/reports/proof-<property-slug>.md` (or into `docs/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md` when there is no campaign). Replace every field. Do not leave template guidance in a live report.
+Copy this file into `lab/campaigns/<slug>/reports/proof-<property-slug>.md` (or into `lab/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md` when there is no campaign). Replace every field. Do not leave template guidance in a live report.
 
 Campaign: `<slug or "none — standalone">`
 

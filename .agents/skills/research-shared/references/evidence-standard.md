@@ -2,14 +2,14 @@
 
 Evidence is a result with provenance. A number without provenance is not evidence.
 
-Experiment rules: [docs/experiments/AGENTS.md](../../../../docs/experiments/AGENTS.md). Terms: [terminology.md](terminology.md).
+Experiment rules: [lab/experiments/AGENTS.md](../../../../lab/experiments/AGENTS.md). Terms: [terminology.md](terminology.md).
 
 ## Planes
 
 | Plane | Home | What it records |
 |---|---|---|
 | Execution | `lab/` | Campaigns, trials, ledgers, evaluator locks |
-| Evidence | `docs/experiments/` | Hypotheses, predictions, methods, results, belief updates |
+| Evidence | `lab/experiments/` | Hypotheses, predictions, methods, results, belief updates |
 | Decision | `.agents/notes/` | Why a design changed, and what was given up |
 | Artifacts | `ignored/` | Large binaries, worktrees, caches. Tracked trees hold pointers and digests |
 
@@ -69,7 +69,7 @@ The agent must not treat an undigested screenshot, CSV drop, or vendor export as
 
 ## Predictions before results
 
-The agent writes predictions before any run. The agent commits or otherwise freezes the planned experiment file while it still lives in `docs/experiments/planned/` with no `## Results` section.
+The agent writes predictions before any run. The agent commits or otherwise freezes the planned experiment file while it still lives in `lab/experiments/planned/` with no `## Results` section.
 
 Predictions must be observable. Predictions must include:
 
@@ -89,7 +89,7 @@ The agent must not:
 - Add a `## Results` section to a file in `planned/`
 - Turn a `lab/spikes/` exploration into an experiment by writing predictions after the fact
 - Fill empty prediction bullets from memory of a completed run
-- Drop unlabeled numbers in `docs/experiments/results/` with no matching writeup
+- Drop unlabeled numbers in `lab/experiments/results/` with no matching writeup
 - Omit negative results from a synthesis
 - Cherry-pick trials that favor a claim
 

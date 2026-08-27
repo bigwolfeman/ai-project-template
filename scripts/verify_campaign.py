@@ -60,7 +60,7 @@ RESEARCH_SKILLS = (
 )
 # Thin skills: SKILL.md required; references/examples.md optional.
 THIN_RESEARCH_SKILLS = frozenset({"research-shared", "maintain-docs"})
-PLANNED_LINK = re.compile(r"\[[^\]]+\]\([^)]*docs/experiments/planned/[^)]+\)")
+PLANNED_LINK = re.compile(r"\[[^\]]+\]\([^)]*lab/experiments/planned/[^)]+\)")
 
 
 def check_campaign_artifacts(errors: Any, root: Path = ROOT) -> None:
@@ -68,6 +68,7 @@ def check_campaign_artifacts(errors: Any, root: Path = ROOT) -> None:
         "lab/AGENTS.md",
         "lab/spikes",
         "lab/campaigns",
+        "lab/schemas",
         "lab/templates/campaign",
     ):
         path = root / rel
@@ -77,9 +78,9 @@ def check_campaign_artifacts(errors: Any, root: Path = ROOT) -> None:
         elif not path.is_dir():
             errors.add(f"missing required directory: {rel}")
     for name in SCHEMA_FILES:
-        path = root / "schemas" / name
+        path = root / "lab" / "schemas" / name
         if not path.is_file():
-            errors.add(f"missing required file: schemas/{name}")
+            errors.add(f"missing required file: lab/schemas/{name}")
     template = root / "lab" / "templates" / "campaign"
     if template.is_dir():
         _check_campaign_dir(template, errors, root=root)
@@ -121,7 +122,7 @@ def _check_campaign_dir(campaign_dir: Path, errors: Any, *, root: Path) -> None:
     manifest_path = campaign_dir / "campaign.yaml"
     if not manifest_path.is_file():
         return
-    store = SchemaStore(root / "schemas")
+    store = SchemaStore(root / "lab" / "schemas")
     _schema_file(manifest_path, "campaign.schema.json", store, errors, root)
     _schema_file(campaign_dir / "evaluator.lock.json", "evaluator.lock.schema.json", store, errors, root)
     _schema_file(campaign_dir / "state/campaign.json", "campaign-state.schema.json", store, errors, root)
@@ -187,7 +188,7 @@ def _check_program(path: Path, rel: Path, errors: Any) -> None:
         return
     text = path.read_text(encoding="utf-8")
     if PLANNED_LINK.search(text) is None:
-        errors.add(f"{rel}/program.md: missing link to docs/experiments/planned/")
+        errors.add(f"{rel}/program.md: missing link to lab/experiments/planned/")
     if re.search(r"^## Predictions\s*$", text, re.MULTILINE):
         errors.add(f"{rel}/program.md: must not copy ## Predictions")
 

@@ -33,7 +33,7 @@ The agent refuses an unbounded loop instruction such as `NEVER STOP`. Closing wo
 
 1. [docs/constitution.md](../../../docs/constitution.md)
 2. [lab/AGENTS.md](../../../lab/AGENTS.md)
-3. [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md)
+3. [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md)
 4. [.agents/notes/README.md](../../notes/README.md)
 5. [.agents/notes/AGENTS.md](../../notes/AGENTS.md)
 6. [../research-shared/references/terminology.md](../research-shared/references/terminology.md)
@@ -167,7 +167,7 @@ After synthesis: the **operator** reviews promotion candidates. Follow-up claims
 
 After promotion package: the **operator** decides approve or reject. Agent Note lifecycle follows [maintain-docs](../maintain-docs/SKILL.md).
 
-Terminal states: campaign `aborted` (integrity), `synthesized` (beliefs recorded), promotion `pending` / `approved` / `rejected`. Production lives in `src/` only after approval. Campaign files stay in `lab/`. Experiments stay under `docs/experiments/`.
+Terminal states: campaign `aborted` (integrity), `synthesized` (beliefs recorded), promotion `pending` / `approved` / `rejected`. Production lives in `src/` only after approval. Campaign files stay in `lab/`. Experiments stay under `lab/experiments/`.
 
 The agent does not restart a trial loop from close.
 

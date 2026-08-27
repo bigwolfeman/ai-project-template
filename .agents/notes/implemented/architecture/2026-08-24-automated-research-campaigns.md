@@ -4,7 +4,7 @@ Status: implemented
 
 ## Problem
 
-`lab/` was only unstructured spikes. `docs/experiments/` records one hypothesis at a time. Neither supported a bounded, metric-gated campaign that mutates a subject, evaluates it against a protected harness, and keeps rejected work as evidence. Agents mixed spikes, experiments, and production edits, or invented unbounded loops with destructive Git resets.
+`lab/` was only unstructured spikes. `lab/experiments/` records one hypothesis at a time. Neither supported a bounded, metric-gated campaign that mutates a subject, evaluates it against a protected harness, and keeps rejected work as evidence. Agents mixed spikes, experiments, and production edits, or invented unbounded loops with destructive Git resets.
 
 This note extends [the template-structure note](../../implemented/process/2026-08-20-template-structure-from-harness.md). It does not replace experiment documents or Agent Notes.
 
@@ -13,12 +13,12 @@ This note extends [the template-structure note](../../implemented/process/2026-0
 The repository uses a domain-general research model:
 
 - **Spike** — informal exploration in `lab/spikes/`. No prior hypothesis.
-- **Experiment** — one falsifiable hypothesis in `docs/experiments/`.
+- **Experiment** — one falsifiable hypothesis in `lab/experiments/`.
 - **Campaign** — a bounded program in `lab/campaigns/<slug>/` that coordinates one or more experiments and many **trials**.
 - **Trial** — one execution of one **candidate**. Outcomes: `accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`. These are not hypothesis verdicts.
 - **Hypothesis verdicts** — `supported`, `falsified`, `unresolved`. Experiment folders remain `planned/`, `successes/`, and `failures/`. `successes/` means predictions held. `failures/` means falsified or protocol failure. State which in Verdict.
 
-`lab/` is the execution plane. `docs/experiments/` is the evidence plane. `.agents/notes/` is the decision plane. `src/` receives promoted work only after human review.
+`lab/` is the execution plane. `lab/experiments/` is the evidence plane. `.agents/notes/` is the decision plane. `src/` receives promoted work only after human review.
 
 ### Campaign files
 
@@ -67,7 +67,7 @@ When `branch_worktree_policy.isolation` is `git_worktree`, the runner creates a 
 
 Workflows live under `.agents/skills/`. Catalog: [.agents/skills/README.md](../../../.agents/skills/README.md). Root `AGENTS.md` names the toolkit and links. It does not copy procedures.
 
-Shipped campaign skills run from scope through audit and promotion. Campaign static contract: `lab/templates/campaign/`, schemas under `schemas/`, `scripts/verify_campaign.py`. Runner: `scripts/campaign_runner/`, `scripts/run_campaign.py`. Cookbook: [docs/cookbook/starting-a-campaign.md](../../../docs/cookbook/starting-a-campaign.md), [docs/cookbook/running-a-campaign.md](../../../docs/cookbook/running-a-campaign.md).
+Shipped campaign skills run from scope through audit and promotion. Campaign static contract: `lab/templates/campaign/`, schemas under `lab/schemas/`, `scripts/verify_campaign.py`. Runner: `scripts/campaign_runner/`, `scripts/run_campaign.py`. Cookbook: [.agents/cookbook/starting-a-campaign.md](../../../.agents/cookbook/starting-a-campaign.md), [.agents/cookbook/running-a-campaign.md](../../../.agents/cookbook/running-a-campaign.md).
 
 ## Alternatives considered
 
@@ -83,5 +83,5 @@ Shipped campaign skills run from scope through audit and promotion. Campaign sta
 - A campaign cannot run without a sealed evaluator lock and an explicit budget.
 - Disposable worktrees keep the production branch unchanged. Mutable and protected paths are overlaid into the worktree for evaluation.
 - Negative trial evidence remains in the ledger. Promotion into `src/` requires human review and an Agent Note.
-- Keeping `successes/`/`failures/` can confuse trial outcomes with hypothesis verdicts. Skills and `docs/experiments/AGENTS.md` keep the vocabularies separate.
+- Keeping `successes/`/`failures/` can confuse trial outcomes with hypothesis verdicts. Skills and `lab/experiments/AGENTS.md` keep the vocabularies separate.
 - Verification: `python scripts/verify_template.py`, `python scripts/verify_campaign.py lab/templates/campaign`, and `python -m unittest discover -s tests -q`.

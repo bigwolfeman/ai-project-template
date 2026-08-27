@@ -41,7 +41,7 @@ What would make this run inconclusive (protocol failure, not a hypothesis test):
 1. Copy `lab/templates/campaign/` to a disposable campaign under `lab/campaigns/` only if a live campaign is required. For template verification, treat this file as the linked example for the generic-command program theme.
 2. Confirm `evaluator.lock.json` matches protected resources. Do not mutate protected paths.
 3. Run the sealed evaluator three times on the unchanged subject with the same command and environment scrub (`env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH`).
-4. Record pass/fail of hard constraints, mean latency, lock digest, and host load notes under `docs/experiments/results/2026-08-24-example-generic-command/` (or the matching campaign artifact pointer).
+4. Record pass/fail of hard constraints, mean latency, lock digest, and host load notes under `lab/experiments/results/2026-08-24-example-generic-command/` (or the matching campaign artifact pointer).
 5. Compare runs against the predictions above. Do not edit Predictions after artifacts exist.
 6. Stop when three runs are recorded or when a protocol failure makes the hypothesis untestable.
 
@@ -51,4 +51,4 @@ Campaign link after copy: `lab/campaigns/<slug>/program.md` must point at this f
 
 - Campaign template: [lab/templates/campaign/program.md](../../../lab/templates/campaign/program.md)
 - Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../../../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md)
-- Cookbook: [../../cookbook/running-a-campaign.md](../../cookbook/running-a-campaign.md)
+- Cookbook: [.agents/cookbook/running-a-campaign.md](../../../.agents/cookbook/running-a-campaign.md)

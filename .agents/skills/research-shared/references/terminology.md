@@ -2,7 +2,7 @@
 
 Use these terms in skills, schemas, reports, and campaign files. Do not invent synonyms.
 
-Architecture: [Automated research campaigns](../../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md). Experiments: [docs/experiments/AGENTS.md](../../../../docs/experiments/AGENTS.md).
+Architecture: [Automated research campaigns](../../../notes/implemented/architecture/2026-08-24-automated-research-campaigns.md). Experiments: [lab/experiments/AGENTS.md](../../../../lab/experiments/AGENTS.md).
 
 ## Actors
 
@@ -21,7 +21,7 @@ The agent must not silently approve cost, safety, or irreversible work for the o
 
 **Spike** — informal exploration in `lab/spikes/`. No prior hypothesis.
 
-**Experiment** — a protocol that tests one hypothesis. Records live under `docs/experiments/`. An experiment can require several repeated trials.
+**Experiment** — a protocol that tests one hypothesis. Records live under `lab/experiments/`. An experiment can require several repeated trials.
 
 **Campaign** — a bounded research program in `lab/campaigns/<slug>/`. A campaign coordinates one or more hypotheses and many trials. It owns the operational goal, mutable scope, protected resources, budgets, comparison policy, and stopping conditions.
 
@@ -79,7 +79,7 @@ A synthesis may also mark a claim **untested**. Untested means no valid protocol
 
 ## Experiment folders are not trial outcomes
 
-This slice keeps `docs/experiments/planned/`, `successes/`, and `failures/`.
+This slice keeps `lab/experiments/planned/`, `successes/`, and `failures/`.
 
 | Folder | Meaning |
 |---|---|
@@ -102,7 +102,7 @@ Campaign policy maps comparator outcomes to trial outcomes. The agent must not t
 | Plane | Home |
 |---|---|
 | Execution | `lab/` |
-| Evidence | `docs/experiments/` |
+| Evidence | `lab/experiments/` |
 | Decision | `.agents/notes/` |
 | Production | `src/` after promotion |
 

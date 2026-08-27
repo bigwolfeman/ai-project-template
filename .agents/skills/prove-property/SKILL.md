@@ -78,14 +78,14 @@ If `lab/campaigns/<slug>/` exists, the agent may write:
 
 If no campaign exists, the agent may write:
 
-- `docs/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md`
-- artifacts under `ignored/experiment-artifacts/<property-slug>/` with a pointer under `docs/experiments/results/` when an experiment already exists
+- `lab/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md`
+- artifacts under `ignored/experiment-artifacts/<property-slug>/` with a pointer under `lab/experiments/results/` when an experiment already exists
 
 The agent does not append ledger events.
 
 The agent does not change campaign state.
 
-The agent does not add a `## Results` section to a file in `docs/experiments/planned/`.
+The agent does not add a `## Results` section to a file in `lab/experiments/planned/`.
 
 ## Procedure
 
@@ -110,7 +110,7 @@ The proof plan carries the provenance fields in [evidence-standard.md](../resear
 
 Every proof artifact states the fields owned by [formal-methods.md](../research-shared/references/formal-methods.md): Property, Assumptions, Definitions, Scope, Solver or prover version, Execution command, Result, Model-to-code correspondence, Unproved behavior.
 
-A scientific performance claim still needs predictions in `docs/experiments/planned/` before any empirical run. This skill does not backfill those predictions.
+A scientific performance claim still needs predictions in `lab/experiments/planned/` before any empirical run. This skill does not backfill those predictions.
 
 ## Output schema
 
@@ -196,7 +196,7 @@ rg -n 'proved correct' lab/campaigns/<slug>/reports/proof-<property-slug>.md && 
 env -u APPIMAGE -u APPDIR -u LD_LIBRARY_PATH python scripts/verify_template.py
 ```
 
-Replace `<slug>` and `<property-slug>`. If the work is standalone, replace the `test -f` path with `docs/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md`.
+Replace `<slug>` and `<property-slug>`. If the work is standalone, replace the `test -f` path with `lab/experiments/algorithms/yyyy-mm-dd-<property-slug>-proof.md`.
 
 The verifier must exit 0. The phrase `proved correct` must not appear in the plan.
 

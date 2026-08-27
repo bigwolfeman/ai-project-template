@@ -15,7 +15,7 @@ This repository is a starter template, not a harness fork. It copies the *inform
 - Agent Notes live at `.agents/notes/{lifecycle}/{class}/yyyy-mm-dd-slug.md` with mandatory Problem / decision-or-proposal / Alternatives considered.
 - Documentation kinds stay split: cookbooks for procedures, postmortems for escaped incidents, constitution for the project's own vision (the shipped `docs/constitution.md` is a fill-in template; root `AGENTS.md` requires writing it with the user at project start and rereading it every context window).
 
-It adds `docs/experiments/` with `algorithms/`, `planned/`, `successes/`, `failures/`, and `results/`. Predictions are committed in `planned/` before any run. `scripts/verify_template.py` rejects planned files that contain Results, completed files missing Verdict or Updated hypothesis, and notes whose Status disagrees with their folder.
+It adds `lab/experiments/` with `algorithms/`, `planned/`, `successes/`, `failures/`, and `results/`. Predictions are committed in `planned/` before any run. `scripts/verify_template.py` rejects planned files that contain Results, completed files missing Verdict or Updated hypothesis, and notes whose Status disagrees with their folder.
 
 Bilingual pairing, generated catalogs, and DeepSeek-specific gates are not part of this template.
 

@@ -2,7 +2,7 @@ schema_version: "1.0.0"
 campaign_id: tiny-generic
 title: Tiny generic-command fixture campaign
 research_question_links:
-  - docs/experiments/planned/2026-08-24-tiny-generic-fixture.md
+  - lab/experiments/planned/2026-08-24-tiny-generic-fixture.md
 mutable_paths:
   - subject/
 protected_paths:

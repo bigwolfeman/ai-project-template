@@ -12,7 +12,7 @@ cd my-project
 python scripts/verify_template.py
 ```
 
-Then follow [docs/cookbook/starting-a-project.md](docs/cookbook/starting-a-project.md).
+Then follow [.agents/cookbook/starting-a-project.md](.agents/cookbook/starting-a-project.md).
 
 ## What agents must do
 
@@ -21,9 +21,9 @@ Then follow [docs/cookbook/starting-a-project.md](docs/cookbook/starting-a-proje
 | Standing orders | [AGENTS.md](AGENTS.md) |
 | Project vision (fill at start) | [docs/constitution.md](docs/constitution.md) |
 | Design decisions | [.agents/notes/](.agents/notes/README.md) |
-| How-tos | [docs/cookbook/](docs/cookbook/starting-a-project.md) |
-| Experiments | [docs/experiments/](docs/experiments/README.md) — **predictions first** |
-| Escaped bugs | [docs/postmortem/](docs/postmortem/README.md) |
+| How-tos | [.agents/cookbook/](.agents/cookbook/starting-a-project.md) |
+| Experiments | [lab/experiments/](lab/experiments/README.md) — **predictions first** |
+| Escaped bugs | [.agents/postmortem/](.agents/postmortem/README.md) |
 | Spikes | [lab/spikes/](lab/spikes/README.md) — informal exploration; no prior hypothesis |
 | Campaigns | [lab/campaigns/](lab/campaigns/README.md) — bounded programs with trials |
 | Production code | `src/` |

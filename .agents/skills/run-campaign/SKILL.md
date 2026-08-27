@@ -56,7 +56,7 @@ A runner exists that can isolate worktrees and append the ledger for automated t
 - Sealed `evaluator.lock.json`
 - `campaign.yaml` (budget, stop conditions, comparator, replication, mutation, exploration policies)
 - Unchanged subject identity for baseline (Git commit or content digest)
-- For each trial: one focused hypothesis under `docs/experiments/planned/` or one issue identifier
+- For each trial: one focused hypothesis under `lab/experiments/planned/` or one issue identifier
 - Remaining budget (from ledger projections and `campaign.yaml`)
 - Current best identifier (`state/best.json`) after baseline
 - Operator approval when the contract requires it (budget increase, undeclared path, `human_review`, resume after pause, `bounded_branch`)
@@ -128,7 +128,7 @@ Depending on phase, the agent writes one or more of:
 - `state/issues/<issue-id>.yaml` and `reports/issue-<issue-id>.md` — see [issues.md](references/issues.md)
 - `reports/valley-<branch-id>.md` — see [valley.md](references/valley.md)
 
-Schemas when the runner writes projections: [schemas/baseline.schema.json](../../../schemas/baseline.schema.json), [schemas/ledger-event.schema.json](../../../schemas/ledger-event.schema.json), [schemas/campaign-state.schema.json](../../../schemas/campaign-state.schema.json), [schemas/best.schema.json](../../../schemas/best.schema.json), [schemas/evaluator-result.schema.json](../../../schemas/evaluator-result.schema.json).
+Schemas when the runner writes projections: [lab/schemas/baseline.schema.json](../../../lab/schemas/baseline.schema.json), [lab/schemas/ledger-event.schema.json](../../../lab/schemas/ledger-event.schema.json), [lab/schemas/campaign-state.schema.json](../../../lab/schemas/campaign-state.schema.json), [lab/schemas/best.schema.json](../../../lab/schemas/best.schema.json), [lab/schemas/evaluator-result.schema.json](../../../lab/schemas/evaluator-result.schema.json).
 
 State transitions this skill may cause via the runner: `ready` → `running` after sealed baseline and first post-baseline trial; `running` → `stopped` | `completed` | `paused` | `aborted` per stop conditions and integrity rules. The agent does not set `aborted` back to `running`.
 

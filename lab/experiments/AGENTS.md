@@ -4,12 +4,12 @@ Experiments are measured inquiry. They are not spikes (`lab/spikes/`), not campa
 
 The scientific method is the format. **Predictions are written and committed before any run.** Filling predictions after seeing results is a process failure; delete the file and start over if that happened.
 
-A **campaign** may coordinate several experiment files. The campaign `program.md` must link those files. It must not copy their hypotheses or predictions. Lab rules: [lab/AGENTS.md](../../lab/AGENTS.md).
+A **campaign** may coordinate several experiment files. The campaign `program.md` must link those files. It must not copy their hypotheses or predictions. Lab rules: [lab/AGENTS.md](../AGENTS.md).
 
 ## Layout
 
 ```
-docs/experiments/
+lab/experiments/
   algorithms/     Writeups (and notebooks) on methods — not run records
   planned/        Hypothesis + predictions + method; no results
   successes/      Runs whose predictions held (hypothesis supported)

@@ -9,7 +9,7 @@ description: >-
 
 # Maintain documentation and Agent Notes
 
-Rules for placement live in [docs/AGENTS.md](../../../docs/AGENTS.md). Experiments: [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md). Lab: [lab/AGENTS.md](../../../lab/AGENTS.md). Notes: [.agents/notes/README.md](../../notes/README.md) and [.agents/notes/archived/AGENTS.md](../../notes/archived/AGENTS.md).
+Rules for placement live in [docs/AGENTS.md](../../../docs/AGENTS.md). Experiments: [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md). Lab: [lab/AGENTS.md](../../../lab/AGENTS.md). Notes: [.agents/notes/README.md](../../notes/README.md) and [.agents/notes/archived/AGENTS.md](../../notes/archived/AGENTS.md).
 
 Apply ASD-STE100 principles when revising prose. The STE checklist lives in [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md). Do not claim official conformance.
 
@@ -26,11 +26,11 @@ Apply ASD-STE100 principles when revising prose. The STE checklist lives in [../
 - Standing order → root `AGENTS.md` plus a link
 - Project vision / long-term principles → `docs/constitution.md` (fill the template with the user; do not leave it as shipped)
 - Why we chose X → Agent Note under `.agents/notes/`
-- How to do X → `docs/cookbook/`
-- Measured claim → experiment under `docs/experiments/`
+- How to do X → `.agents/cookbook/`
+- Measured claim → experiment under `lab/experiments/`
 - Informal exploration → `lab/spikes/`
 - Bounded research program → `lab/campaigns/` plus experiment files
-- Bug that escaped → postmortem
+- Bug that escaped → `.agents/postmortem/`
 
 A spike is not an experiment. An experiment is not a campaign. A trial outcome is not a hypothesis verdict.
 

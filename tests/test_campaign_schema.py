@@ -19,7 +19,7 @@ from verify_campaign import STAGNATION_LIMITS, TOTAL_LIMITS, _check_budget  # no
 from yaml_subset import YamlError, load_yaml  # noqa: E402
 
 TEMPLATE = ROOT / "lab" / "templates" / "campaign"
-SCHEMAS = ROOT / "schemas"
+SCHEMAS = ROOT / "lab" / "schemas"
 
 
 class Errors:

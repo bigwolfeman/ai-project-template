@@ -15,6 +15,6 @@ Non-trivial changes need an Agent Note under `.agents/notes/{lifecycle}/{class}/
 
 Before automated research, classify the work as a spike, an experiment, or a campaign. Follow [lab/AGENTS.md](../../lab/AGENTS.md) for lab work. Campaign toolkit: [.agents/skills/README.md](../../.agents/skills/README.md).
 
-Experiments: predictions are committed in `docs/experiments/planned/` before any run. Never add `## Results` there. Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md) and `.agents/skills/run-experiment/SKILL.md`.
+Experiments: predictions are committed in `lab/experiments/planned/` before any run. Never add `## Results` there. Follow [lab/experiments/AGENTS.md](../../lab/experiments/AGENTS.md) and `.agents/skills/run-experiment/SKILL.md`.
 
 After note or experiment edits, run `python scripts/verify_template.py` and report the result. Failures are errors, not hints.

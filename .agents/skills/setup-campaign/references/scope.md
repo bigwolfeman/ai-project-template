@@ -5,7 +5,7 @@ The agent converts a broad goal into a classification and a scope draft. The age
 ## Classification tests
 
 - Informal exploration with no prior hypothesis → **spike**. Path: `lab/spikes/`.
-- One falsifiable claim with predictions before any run → **experiment**. Path: `docs/experiments/` via [run-experiment](../../run-experiment/SKILL.md).
+- One falsifiable claim with predictions before any run → **experiment**. Path: `lab/experiments/` via [run-experiment](../../run-experiment/SKILL.md).
 - Bounded program that coordinates one or more experiments and many trials → **campaign**. Path: `lab/campaigns/<slug>/` in phase 2.
 - Defect with a reproduction protocol that may need competing explanations → **bug-investigation**. Usually a campaign. A single already-falsifiable fix claim may be one experiment.
 - Choice of architecture, process, or shipped behavior without a measurement protocol → **design-decision**. Path: `.agents/notes/`.
@@ -50,4 +50,4 @@ The agent refuses unbounded-loop language. The agent asks for a finite trial cou
 
 The agent refuses destructive Git reset. Rejected candidates keep immutable identifiers.
 
-The agent does not create `lab/campaigns/<slug>/` or `docs/experiments/planned/` in this phase.
+The agent does not create `lab/campaigns/<slug>/` or `lab/experiments/planned/` in this phase.

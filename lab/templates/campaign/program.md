@@ -8,7 +8,7 @@ This file is a copyable template. Copy it into `lab/campaigns/<slug>/`. Do not r
 
 The planned experiment owns the question, hypothesis, and predictions:
 
-[docs/experiments/planned/2026-08-24-example-generic-command.md](../../../docs/experiments/planned/2026-08-24-example-generic-command.md)
+[lab/experiments/planned/2026-08-24-example-generic-command.md](../../../lab/experiments/planned/2026-08-24-example-generic-command.md)
 
 This program must not copy those predictions. After copy into a live campaign, replace this example link if the campaign uses a different planned experiment.
 

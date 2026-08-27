@@ -1,6 +1,6 @@
 # AGENTS.md — Lab
 
-The lab is the execution plane. Production code lives in `src/`. Hypotheses live in [docs/experiments/](../docs/experiments/AGENTS.md). Decisions live in [.agents/notes/](../.agents/notes/README.md).
+The lab is the execution plane. Production code lives in `src/`. Hypotheses live in [lab/experiments/](experiments/AGENTS.md). Decisions live in [.agents/notes/](../.agents/notes/README.md).
 
 Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md).
 
@@ -10,13 +10,13 @@ A **spike** is informal exploration. The agent places a spike in `lab/spikes/`. 
 
 A **campaign** is a bounded research program. The agent places a campaign in `lab/campaigns/<slug>/`. A campaign coordinates one or more experiments and many **trials**.
 
-An **experiment** is one falsifiable hypothesis. The agent records it under `docs/experiments/`. A campaign may coordinate several experiment files. The campaign `program.md` must link those files. It must not copy their predictions.
+An **experiment** is one falsifiable hypothesis. The agent records it under `lab/experiments/`. A campaign may coordinate several experiment files. The campaign `program.md` must link those files. It must not copy their predictions.
 
 A **trial** is one execution of one **candidate**. Trial outcomes are `accepted`, `rejected`, `invalid`, `inconclusive`, and `crashed`. Those words describe candidate handling. They are not hypothesis verdicts.
 
 The agent classifies the work before any automated research. The agent does not treat a spike as an experiment after seeing the outcome.
 
-How-tos: [starting a campaign](../docs/cookbook/starting-a-campaign.md), [starting an experiment](../docs/cookbook/starting-an-experiment.md). Toolkit: [.agents/skills/README.md](../.agents/skills/README.md).
+How-tos: [starting a campaign](../.agents/cookbook/starting-a-campaign.md), [starting an experiment](../.agents/cookbook/starting-an-experiment.md). Toolkit: [.agents/skills/README.md](../.agents/skills/README.md).
 
 ## Tracked vs ignored
 
@@ -42,6 +42,8 @@ The agent does not store mutable worktrees inside the tracked campaign directory
 
 Copy `lab/templates/campaign/` into `lab/campaigns/<slug>/`. If that template is absent, the agent stops and reports the missing path. Do not use the template path as a live campaign.
 
+JSON Schema for manifests, locks, ledger events, and state projections lives in `lab/schemas/`. `scripts/verify_campaign.py` and `scripts/campaign_schema.py` validate against those files.
+
 This repository ships no live campaigns. Copy the template to start one.
 
 ## Campaign states
@@ -60,7 +62,7 @@ The agent mutates only paths listed in the campaign manifest.
 
 The agent does not start a campaign run without a sealed evaluator and an explicit budget. This rule holds even when no runner exists yet.
 
-The agent does not hand-write ledger events during an automated run. The ledger is execution evidence. Experiment documents summarize at hypothesis level. Detail: [docs/experiments/AGENTS.md](../docs/experiments/AGENTS.md).
+The agent does not hand-write ledger events during an automated run. The ledger is execution evidence. Experiment documents summarize at hypothesis level. Detail: [lab/experiments/AGENTS.md](../lab/experiments/AGENTS.md).
 
 ## Bounds
 

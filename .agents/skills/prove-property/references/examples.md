@@ -159,7 +159,7 @@ Subject: `subject/merge.py`. Comparator is a total order on keys. The project wa
 1. The agent writes Property: for all lists `xs`, `ys` that are sorted under `le`, `merge xs ys` is sorted under `le`.
 2. The agent records Assumptions: `le` is a total order; inputs are finite lists; no concurrent mutation.
 3. The agent writes Lean modules under `ignored/research/merge-sorted/artifacts/proofs/merge-preserves/` and a pointer.
-4. The agent writes `lab/campaigns/merge-sorted/reports/proof-merge-preserves.md` (or `docs/experiments/algorithms/yyyy-mm-dd-merge-preserves-proof.md` if no campaign).
+4. The agent writes `lab/campaigns/merge-sorted/reports/proof-merge-preserves.md` (or `lab/experiments/algorithms/yyyy-mm-dd-merge-preserves-proof.md` if no campaign).
 5. The agent documents `lake build` in that directory.
 6. The agent links `tests/test_merge.py` as remaining integration tests.
 7. If `lake` is absent, Result is `not executed`.

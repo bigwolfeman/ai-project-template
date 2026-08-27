@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 from campaign_ledger import LAST_EVENT_STATE
-from campaign_schema import SchemaStore, validate_instance
+from campaign_schema import SCHEMA_DIR, SchemaStore, validate_instance
 
 from .errors import LedgerError
 
@@ -90,11 +90,16 @@ def append_event(
         # Walk up to repo schemas when possible.
         store_dir = schema_dir
         if store_dir is None:
-            for parent in [campaign_dir, *campaign_dir.parents]:
-                candidate = parent / "schemas"
-                if candidate.is_dir():
-                    store_dir = candidate
-                    break
+            if SCHEMA_DIR.is_dir():
+                store_dir = SCHEMA_DIR
+            else:
+                for parent in [campaign_dir, *campaign_dir.parents]:
+                    for candidate in (parent / "lab" / "schemas", parent / "schemas"):
+                        if candidate.is_dir():
+                            store_dir = candidate
+                            break
+                    if store_dir is not None:
+                        break
         if store_dir is not None:
             store = SchemaStore(store_dir)
             schema_path = store_dir / "ledger-event.schema.json"

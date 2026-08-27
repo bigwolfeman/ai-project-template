@@ -6,7 +6,7 @@ Self-contained fixture for integration tests. Not a live campaign.
 
 ## Research question
 
-[docs/experiments/planned/2026-08-24-tiny-generic-fixture.md](../../../../docs/experiments/planned/2026-08-24-tiny-generic-fixture.md)
+[lab/experiments/planned/2026-08-24-tiny-generic-fixture.md](../../../../lab/experiments/planned/2026-08-24-tiny-generic-fixture.md)
 
 This program does not copy predictions.
 

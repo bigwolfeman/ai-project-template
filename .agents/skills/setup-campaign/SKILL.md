@@ -20,7 +20,7 @@ The agent does not run trials. The agent does not start a research loop. The age
 
 The operator asks to investigate, optimize, explore, research, start a campaign, or design an evaluator.
 
-The work type is unclear before someone would create `lab/campaigns/<slug>/` or `docs/experiments/planned/`.
+The work type is unclear before someone would create `lab/campaigns/<slug>/` or `lab/experiments/planned/`.
 
 Candidates would otherwise be compared on a gameable metric, or holdout protection is missing.
 
@@ -30,8 +30,8 @@ The agent refuses this skill when the operator demands an unbounded loop (`NEVER
 
 1. [docs/constitution.md](../../../docs/constitution.md)
 2. [lab/AGENTS.md](../../../lab/AGENTS.md)
-3. [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md)
-4. [docs/cookbook/starting-a-campaign.md](../../../docs/cookbook/starting-a-campaign.md)
+3. [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md)
+4. [.agents/cookbook/starting-a-campaign.md](../../../.agents/cookbook/starting-a-campaign.md)
 5. [../research-shared/references/terminology.md](../research-shared/references/terminology.md)
 6. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
 7. [../research-shared/references/prompt-contract.md](../research-shared/references/prompt-contract.md)
@@ -84,7 +84,7 @@ Phase 2: copy `lab/templates/campaign/` to `lab/campaigns/<slug>/`; fill `campai
 
 Phase 3: update evaluator fields in `campaign.yaml`; write evaluator specification under `reports/`; write lock *input* (path list and digest method). Digests may stay empty until the operator seals. The agent does not set state to `ready`.
 
-The agent does not create `docs/experiments/planned/` here. That work belongs to [run-experiment](../run-experiment/SKILL.md).
+The agent does not create `lab/experiments/planned/` here. That work belongs to [run-experiment](../run-experiment/SKILL.md).
 
 ## Procedure
 

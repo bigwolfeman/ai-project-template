@@ -10,7 +10,7 @@ from typing import Any
 from yaml_subset import YamlError, load_yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA_DIR = ROOT / "schemas"
+SCHEMA_DIR = ROOT / "lab" / "schemas"
 
 
 class SchemaError(ValueError):

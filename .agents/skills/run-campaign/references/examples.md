@@ -12,7 +12,7 @@ The agent does not include private chain-of-thought. The decision summary is the
 
 ### Input
 
-Campaign `tok-arch-lm` is `ready`. [setup-campaign](../../setup-campaign/SKILL.md) sealed the evaluator. Budget: 30 trials, 48 GPU-hours, stop after 8 consecutive `rejected`. Unchanged subject commit: `a1b2c3d4`. Replication seeds 1, 2, 3. Equivalence margin on bits per byte: 0.02. Runner exists. Planned experiment `docs/experiments/planned/2026-08-24-byte-fallback-merge.md` is frozen.
+Campaign `tok-arch-lm` is `ready`. [setup-campaign](../../setup-campaign/SKILL.md) sealed the evaluator. Budget: 30 trials, 48 GPU-hours, stop after 8 consecutive `rejected`. Unchanged subject commit: `a1b2c3d4`. Replication seeds 1, 2, 3. Equivalence margin on bits per byte: 0.02. Runner exists. Planned experiment `lab/experiments/planned/2026-08-24-byte-fallback-merge.md` is frozen.
 
 Operator: establish the baseline, then start the loop.
 

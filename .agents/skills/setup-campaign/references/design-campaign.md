@@ -58,7 +58,7 @@ Using the template’s field names:
 ## `program.md` must contain
 
 - goal and non-goals
-- links to `docs/experiments/planned/` files, or a statement that none exist yet and a pointer to [run-experiment](../../run-experiment/SKILL.md)
+- links to `lab/experiments/planned/` files, or a statement that none exist yet and a pointer to [run-experiment](../../run-experiment/SKILL.md)
 - budget summary (limits, not a copy of experiment predictions)
 - `## Evaluator design request` or a link to `reports/evaluator-design-request.md`
 

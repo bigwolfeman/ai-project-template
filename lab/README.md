@@ -6,5 +6,6 @@ The lab is the execution plane. It is not production. It is not the scientific r
 |---|---|
 | [spikes/](spikes/README.md) | Informal exploration. No prior hypothesis. |
 | [campaigns/](campaigns/README.md) | Bounded research programs with trials. |
+| [experiments/](experiments/README.md) | Measured inquiry (predictions before results). |
 
-Rules: [AGENTS.md](AGENTS.md). Hypotheses: [docs/experiments/](../docs/experiments/README.md). Production: `src/`.
+Rules: [AGENTS.md](AGENTS.md). Hypotheses: [experiments/](experiments/README.md). Production: `src/`.

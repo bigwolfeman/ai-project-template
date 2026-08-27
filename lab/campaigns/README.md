@@ -6,4 +6,4 @@ Place a live campaign in `lab/campaigns/<slug>/`. Copy `lab/templates/campaign/`
 
 This directory has no live campaigns.
 
-Rules: [../AGENTS.md](../AGENTS.md). How-to: [starting a campaign](../../docs/cookbook/starting-a-campaign.md). Toolkit: [.agents/skills/README.md](../../.agents/skills/README.md).
+Rules: [../AGENTS.md](../AGENTS.md). How-to: [starting a campaign](../../.agents/cookbook/starting-a-campaign.md). Toolkit: [.agents/skills/README.md](../../.agents/skills/README.md).

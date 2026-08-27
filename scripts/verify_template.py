@@ -92,7 +92,9 @@ def check_required_dirs(errors: Errors) -> None:
         ROOT / "AGENTS.md",
         ROOT / "docs" / "AGENTS.md",
         ROOT / "docs" / "constitution.md",
-        ROOT / "docs" / "experiments" / "AGENTS.md",
+        ROOT / "lab" / "experiments" / "AGENTS.md",
+        ROOT / ".agents" / "cookbook" / "README.md",
+        ROOT / ".agents" / "postmortem" / "README.md",
         ROOT / ".agents" / "notes" / "README.md",
         ROOT / "scripts" / "verify_template.py",
     ]
@@ -105,7 +107,7 @@ def check_required_dirs(errors: Errors) -> None:
             if not directory.is_dir():
                 errors.add(f"missing note class directory: {directory.relative_to(ROOT)}")
     for name in ("algorithms", "planned", "successes", "failures", "results", "templates"):
-        directory = ROOT / "docs" / "experiments" / name
+        directory = ROOT / "lab" / "experiments" / name
         if not directory.is_dir():
             errors.add(f"missing experiments directory: {directory.relative_to(ROOT)}")
 
@@ -174,7 +176,7 @@ def check_agent_notes(errors: Errors) -> None:
 
 
 def check_experiments(errors: Errors) -> None:
-    exp_root = ROOT / "docs" / "experiments"
+    exp_root = ROOT / "lab" / "experiments"
     for lifecycle, expected_status in (
         ("planned", "Status: planned"),
         ("successes", "Status: success"),

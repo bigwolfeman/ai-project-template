@@ -2,7 +2,7 @@
 
 Copy these files when a campaign or standalone claim needs a proof plan or a solver report.
 
-Do not treat this directory as a live proof. Live reports live under `lab/campaigns/<slug>/reports/` or `docs/experiments/algorithms/`.
+Do not treat this directory as a live proof. Live reports live under `lab/campaigns/<slug>/reports/` or `lab/experiments/algorithms/`.
 
 ## When to copy
 

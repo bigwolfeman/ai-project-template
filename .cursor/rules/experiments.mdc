@@ -1,12 +1,12 @@
 ---
 description: Scientific-method experiment files — predictions before results, path-encoded status. Trial outcomes are not hypothesis verdicts.
-globs: docs/experiments/**/*.md
+globs: lab/experiments/**/*.md
 alwaysApply: false
 ---
 
 # Experiment documents
 
-Follow [docs/experiments/AGENTS.md](../../docs/experiments/AGENTS.md).
+Follow [lab/experiments/AGENTS.md](../../lab/experiments/AGENTS.md).
 
 - `planned/` — Question, Hypothesis, Predictions, Method. No Results.
 - `successes/` / `failures/` — same Predictions plus Results, Verdict, Updated hypothesis. Status matches folder.

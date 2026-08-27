@@ -1,7 +1,7 @@
 ---
 name: run-experiment
 description: >-
-  Forms a falsifiable hypothesis under docs/experiments/planned/ (Predictions
+  Forms a falsifiable hypothesis under lab/experiments/planned/ (Predictions
   before any run, no Results), runs the protocol, and writes up under
   successes/ or failures/. Use when proposing, running, or writing up an
   experiment, when a campaign needs a linked planned file, or before measuring
@@ -10,7 +10,7 @@ description: >-
 
 # Run an experiment
 
-Read [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md) first. Do not start from `lab/spikes/` after the fact.
+Read [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md) first. Do not start from `lab/spikes/` after the fact.
 
 This skill covers one experiment file: form hypothesis → freeze → run → write up. A campaign that coordinates several experiments follows [.agents/skills/README.md](../README.md). Informal exploration stays in `lab/spikes/`. Classification of unclear work starts at [setup-campaign](../setup-campaign/SKILL.md).
 
@@ -18,9 +18,9 @@ This skill covers one experiment file: form hypothesis → freeze → run → wr
 
 The agent writes a falsifiable claim before execution. The agent does not run the method in this step. The agent does not write a `## Results` section into `planned/`.
 
-1. Read [docs/experiments/AGENTS.md](../../../docs/experiments/AGENTS.md) and [docs/experiments/templates/experiment.md](../../../docs/experiments/templates/experiment.md).
-2. If the method is non-obvious, add or update `docs/experiments/algorithms/yyyy-mm-dd-slug.md`.
-3. Copy `docs/experiments/templates/experiment.md` to `docs/experiments/planned/yyyy-mm-dd-slug.md`.
+1. Read [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md) and [lab/experiments/templates/experiment.md](../../../lab/experiments/templates/experiment.md).
+2. If the method is non-obvious, add or update `lab/experiments/algorithms/yyyy-mm-dd-slug.md`.
+3. Copy `lab/experiments/templates/experiment.md` to `lab/experiments/planned/yyyy-mm-dd-slug.md`.
 4. Set `Status: planned`. Fill Question, Hypothesis, Predictions, Method.
 5. Predictions must be observable and include three non-empty patterns: true, false, and inconclusive. The false pattern is not “the script crashed” (that is protocol failure / inconclusive).
 6. Name confounders and the minimum useful experiment (smallest protocol that can discriminate true from false).
@@ -43,7 +43,7 @@ Required headings in the planned file: Question, Hypothesis, Predictions, Method
 
 ## During the run
 
-Do not edit Predictions. Store artifacts in `docs/experiments/results/yyyy-mm-dd-slug/` with a README listing files. Large binaries go under `ignored/experiment-artifacts/` with a pointer.
+Do not edit Predictions. Store artifacts in `lab/experiments/results/yyyy-mm-dd-slug/` with a README listing files. Large binaries go under `ignored/experiment-artifacts/` with a pointer.
 
 If the method must change in a way that invalidates Predictions, abandon this run: move nothing to successes; write a new planned file.
 
