@@ -24,7 +24,11 @@ If the hypothesis is true, we will observe:
 
 - …
 
-If the hypothesis is false, we will observe:
+If the result is mixed, we will observe:
+
+- …
+
+If the hypothesis is false (a solid dead end), we will observe:
 
 - …
 
@@ -42,7 +46,9 @@ What happened, with pointers into `results/`. No new predictions here.
 
 ## Verdict
 
-success — predictions held because …
+One of: success, mixed, or refuted (solid dead end), or unresolved (protocol failure). Compare the measurement to the strong bar and the dead-end bar. For mixed, name what held, what did not, and the experiment that would split them. For refuted, list the rescues tried or ruled out.
+
+Example: success — predictions held because …
 
 ## Updated hypothesis
 

@@ -16,13 +16,17 @@ A falsifiable claim. Example: "Replacing attention with X does not increase vali
 
 ## Predictions
 
-Write these before any run. Commit this file while it still lives in `planned/` with no Results section.
+Write these before any run. Name the scalar, the strong bar, and the dead-end bar. Between the two bars the result is mixed. Commit this file while it still lives in `planned/` with no Results section.
 
 If the hypothesis is true, we will observe:
 
 - …
 
-If the hypothesis is false, we will observe:
+If the result is mixed, we will observe:
+
+- …
+
+If the hypothesis is false (a solid dead end), we will observe:
 
 - …
 
@@ -31,6 +35,8 @@ What would make this run inconclusive (protocol failure, not a hypothesis test):
 - …
 
 ## Method
+
+Include pseudocode of the change under test, so a reader can follow the idea without opening the diff.
 
 Protocol, data, controls, metrics, compute, seeds, stop conditions. Enough that someone else can repeat the run.
 

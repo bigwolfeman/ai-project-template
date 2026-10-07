@@ -10,10 +10,11 @@ Read [docs/constitution.md](../../docs/constitution.md) at least once in every c
 Also read:
 
 1. [AGENTS.md](../../AGENTS.md)
+2. [.agents/AGENTS.md](../../.agents/AGENTS.md)
 
 Non-trivial changes need an Agent Note under `.agents/notes/{lifecycle}/{class}/`.
 
-Before automated research, classify the work as a spike, an experiment, or a campaign. Follow [lab/AGENTS.md](../../lab/AGENTS.md) for lab work. Campaign toolkit: [.agents/skills/README.md](../../.agents/skills/README.md).
+Before automated research, classify the work as a spike, an experiment, or a campaign. Follow [lab/AGENTS.md](../../lab/AGENTS.md) for lab work. Campaign toolkit: [.agents/skills/AGENTS.md](../../.agents/skills/AGENTS.md).
 
 Experiments: predictions are committed in `lab/experiments/planned/` before any run. Never add `## Results` there. Follow [lab/experiments/AGENTS.md](../../lab/experiments/AGENTS.md) and `.agents/skills/run-experiment/SKILL.md`.
 

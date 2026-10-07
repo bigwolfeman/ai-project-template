@@ -1,6 +1,6 @@
 # Running a campaign
 
-This procedure executes a campaign after [starting-a-campaign.md](starting-a-campaign.md) is complete. Skill catalog: [.agents/skills/README.md](../skills/README.md). Lab rules: [lab/AGENTS.md](../../lab/AGENTS.md).
+This procedure executes a campaign after [starting-a-campaign.md](starting-a-campaign.md) is complete. Skill catalog: [.agents/skills/AGENTS.md](../skills/AGENTS.md). Lab rules: [lab/AGENTS.md](../../lab/AGENTS.md).
 
 ## Preconditions
 
@@ -37,7 +37,7 @@ This procedure executes a campaign after [starting-a-campaign.md](starting-a-cam
 - Bounded budgets only. Wall-clock, trial count, and stagnation limits in the manifest are stop conditions.
 - No `git reset --hard` to reject a candidate.
 - No invented runner when `scripts/run_campaign.py` is missing.
-- Trial outcomes (`accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`) are not hypothesis verdicts (`supported`, `falsified`, `unresolved`).
+- Trial outcomes (`accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`) are not hypothesis verdicts (`supported`, `mixed`, `refuted`, `unresolved`).
 - Formal claims use [prove-property](../skills/prove-property/SKILL.md) and [lab/templates/proofs/](../../lab/templates/proofs/README.md).
 
 ## Status check

@@ -19,7 +19,7 @@ The agent must read the linked file that owns the fact. The agent must not copy 
 
 ## Catalog
 
-Workflow selection lives in [../README.md](../README.md).
+Workflow selection lives in [../AGENTS.md](../AGENTS.md).
 
 ## Contract
 

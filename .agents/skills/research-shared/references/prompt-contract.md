@@ -1,6 +1,6 @@
 # Research skill prompt contract
 
-This file owns the anatomy of a research `SKILL.md`. Workflow selection lives in [../../README.md](../../README.md). Terms live in [terminology.md](terminology.md).
+This file owns the anatomy of a research `SKILL.md`. Workflow selection lives in [../../AGENTS.md](../../AGENTS.md). Terms live in [terminology.md](terminology.md).
 
 This contract applies to research campaign skills: `setup-campaign`, `run-campaign`, `close-campaign`, and `prove-property`. It does not require a full 15-section rewrite of `maintain-docs` or `run-experiment`. `research-shared` is an index. It is not a 15-section workflow.
 

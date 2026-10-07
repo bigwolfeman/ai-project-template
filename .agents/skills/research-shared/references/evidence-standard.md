@@ -99,7 +99,7 @@ If backfilling happened, the file is dishonest. The agent deletes it. The agent 
 
 The Verdict section of an experiment talks about the claim. It does not talk about process success.
 
-Trial outcomes remain `accepted`, `rejected`, `invalid`, `inconclusive`, or `crashed`. Hypothesis verdicts remain `supported`, `falsified`, or `unresolved`. The agent must not mix these vocabularies. See [terminology.md](terminology.md).
+Trial outcomes remain `accepted`, `rejected`, `invalid`, `inconclusive`, or `crashed`. Hypothesis verdicts remain `supported`, `mixed`, `refuted`, or `unresolved`. The agent must not mix these vocabularies. See [terminology.md](terminology.md).
 
 ## Integrity
 

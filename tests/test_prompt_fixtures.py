@@ -286,7 +286,7 @@ class PromptFixtureRuleTests(unittest.TestCase):
         )
         self.assertEqual(
             set(vocab.get("hypothesis_verdicts") or []),
-            {"supported", "falsified", "unresolved"},
+            {"supported", "mixed", "refuted", "unresolved"},
             fixture["_path"],
         )
 

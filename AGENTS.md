@@ -4,11 +4,12 @@ Standing orders for every agent session. One to three lines per rule; the linked
 
 **Read [docs/constitution.md](docs/constitution.md) at least once in every context window** before doing project work. That file is the long-term track. If Status is still `TEMPLATE`, the first project job is to write the constitution with the user: the agent's full vision of the project, refined until the user agrees, saved thoroughly enough that a later session cannot honestly drift. `docs/constitution.md` as shipped is a form, not a vision — fill every `[bracket]`, remove template instructions, set Status to `Ratified`. Do not treat an unfilled template as law, and do not start features while the vision still lives only in chat.
 
-Then read [docs/AGENTS.md](docs/AGENTS.md) before changing documentation layout. Follow [lab/AGENTS.md](lab/AGENTS.md) before spike or campaign work. Follow [lab/experiments/AGENTS.md](lab/experiments/AGENTS.md) before running or writing up any experiment. Follow [.agents/notes/README.md](.agents/notes/README.md) before recording a design decision. Follow [.agents/notes/AGENTS.md](.agents/notes/AGENTS.md) at least once in the context window when writing notes.
+Then read [.agents/AGENTS.md](.agents/AGENTS.md) before work in this tree. Read [docs/AGENTS.md](docs/AGENTS.md) before changing documentation layout. Follow [lab/AGENTS.md](lab/AGENTS.md) before spike or campaign work. Follow [lab/experiments/AGENTS.md](lab/experiments/AGENTS.md) before running or writing up any experiment. Follow [.agents/notes/AGENTS.md](.agents/notes/AGENTS.md) before recording a design decision.
 
 ## Repository layout
 
 ```
+.agents/AGENTS.md     Glossary and subtree index for the agent workspace
 .agents/notes/       Decision records (proposed / implemented / rejected / archived)
 .agents/skills/      Reusable agent workflows
 .agents/cookbook/    Step-by-step how-tos
@@ -29,16 +30,18 @@ Incomplete/          Operator leftovers — never committed
 - **One home per fact.** Put a rule in the tier that owns it; elsewhere, link. Do not restate.
 - **Non-trivial changes get an Agent Note in the same change.** Exempt only mechanical or local edits. Path: `.agents/notes/{lifecycle}/{class}/yyyy-mm-dd-topic.md`.
 - **Classify research work first.** Before automated research, the agent names the work as a spike, an experiment, or a campaign. These terms are not synonyms. Homes: [lab/AGENTS.md](lab/AGENTS.md) and [lab/experiments/AGENTS.md](lab/experiments/AGENTS.md).
-- **Campaigns use the research toolkit.** For campaign work, the agent follows [.agents/skills/README.md](.agents/skills/README.md). This file does not copy those procedures.
+- **Campaigns use the research toolkit.** For campaign work, the agent follows [.agents/skills/AGENTS.md](.agents/skills/AGENTS.md). This file does not copy those procedures.
 - **Seal the evaluator and set a budget.** The agent does not start a campaign run without a sealed evaluator and an explicit budget. Detail: [lab/AGENTS.md](lab/AGENTS.md).
 - **Do not use destructive Git ratchets.** The agent does not run `git reset --hard` to reject a candidate. Keep immutable candidate identifiers. Detail: [lab/AGENTS.md](lab/AGENTS.md).
 - **Bound every research loop.** Every campaign has a stop condition. The agent does not follow unbounded instructions such as NEVER STOP.
 - **Write instructions in controlled English.** Apply ASD-STE100 principles. Do not claim official conformance. Home: [.agents/skills/research-shared/references/ste100-style.md](.agents/skills/research-shared/references/ste100-style.md).
 - **Consider Z3 and Lean when a proof is useful.** Tests remain the default when they are cheaper and sufficient. Home: [.agents/skills/research-shared/references/formal-methods.md](.agents/skills/research-shared/references/formal-methods.md).
 - **Promote into `src/` only after human review.** Campaign and spike output is not production. Record the decision in an Agent Note.
+- **Write pseudocode first, and keep it with the code.** Spikes, experiment Methods, algorithm writeups, and promoted code carry pseudocode. Documentation lives beside the code it describes. Detail: [lab/AGENTS.md](lab/AGENTS.md).
+- **Do not over-read results.** Compare the measurement to the strong bar and the dead-end bar written before the run. Partial signal goes to `lab/experiments/mixed/`. Only solid dead ends go to `refuted/`. When unsure, file `mixed`. Detail: [lab/experiments/AGENTS.md](lab/experiments/AGENTS.md).
 - **Predictions before results.** Never record experimental outcomes until a `lab/experiments/planned/` file with Hypothesis, Predictions, and Method is written. Do not backfill predictions after seeing data.
 - **Experiments are not Agent Notes.** Decisions that change architecture, process, or shipped behavior still get an Agent Note; the run lives under `lab/experiments/`.
-- **Incidents are postmortems.** Subtle, systemic, costly-to-rediscover failures go in `.agents/postmortem/`, not in Agent Notes or experiment failures.
+- **Incidents are postmortems.** Subtle, systemic, costly-to-rediscover failures go in `.agents/postmortem/`, not in Agent Notes or experiment `refuted/`.
 - **Misconfiguration and failed runs fail loud.** Do not swallow errors, skip missing referents, or leave empty `catch` blocks.
 - **Document current state.** Change stories belong in commits, Agent Notes, postmortems, or experiment verdicts — not in durable reference docs.
 - **Run `python scripts/verify_template.py`** after adding or moving notes, experiments, or docs. Report the commands you ran.
@@ -50,4 +53,4 @@ Keep each rule self-contained and short. `CLAUDE.md` is a symlink to this file; 
 
 ## Ai-notes rule
 
-If you have been told to keep your notes in ai-notes or a similar place, instead use .agents/ there are instructions in .agents/ on how to craft high quality notes. You should read its AGENTS.md at least once in your context window to help stay on track.
+If you have been told to keep your notes in ai-notes or a similar place, instead use `.agents/`. Read [.agents/AGENTS.md](.agents/AGENTS.md) at least once in your context window. Agent Note format lives in [.agents/notes/AGENTS.md](.agents/notes/AGENTS.md).

@@ -12,8 +12,8 @@ Refuse synthesis when the audit is missing or blocking. Refuse when the campaign
 
 1. The agent confirms the audit verdict. If missing or blocking → stop; return to [audit.md](audit.md).
 2. The agent reads `program.md`, `campaign.yaml`, the ledger, hypothesis files, and every linked experiment.
-3. The agent lists every hypothesis as `supported`, `falsified`, `unresolved`, or `untested`. Trial outcomes are not hypothesis verdicts.
-4. The agent includes negative results. A rejected candidate is evidence. A falsified hypothesis is evidence.
+3. The agent lists every hypothesis as `supported`, `mixed`, `refuted`, `unresolved`, or `untested`. Trial outcomes are not hypothesis verdicts.
+4. The agent includes negative results. A rejected candidate is evidence. A refuted hypothesis is evidence.
 5. The agent separates facts (measurements, trial outcomes, timestamps, hardware identity) from interpretations (mechanisms, transfer claims).
 6. The agent states transfer limitations. A gain on one GPU, machine, or dataset is stated as such. The agent does not claim hardware-independent improvement without evidence.
 7. The agent lists unresolved issues and untested claims.
@@ -41,7 +41,7 @@ Negative results:
 
 ## Interpretations
 Hypotheses:
-- id / path / verdict (supported | falsified | unresolved | untested) / conditions
+- id / path / verdict (supported | mixed | refuted | unresolved | untested) / conditions
 
 Unsupported claims:
 Unresolved issues:
@@ -55,4 +55,4 @@ Open questions:
 
 ## Refusals
 
-Omitting negative results. Treating trial `rejected` as hypothesis `falsified` (or `accepted` as `supported`) without an experiment protocol. Claiming portability when hardware identity is unknown. Writing Predictions into `program.md`. `git reset --hard`.
+Omitting negative results. Treating trial `rejected` as hypothesis `refuted` (or `accepted` as `supported`) without an experiment protocol. Claiming portability when hardware identity is unknown. Writing Predictions into `program.md`. `git reset --hard`.

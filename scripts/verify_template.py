@@ -92,10 +92,12 @@ def check_required_dirs(errors: Errors) -> None:
         ROOT / "AGENTS.md",
         ROOT / "docs" / "AGENTS.md",
         ROOT / "docs" / "constitution.md",
+        ROOT / ".agents" / "AGENTS.md",
         ROOT / "lab" / "experiments" / "AGENTS.md",
-        ROOT / ".agents" / "cookbook" / "README.md",
-        ROOT / ".agents" / "postmortem" / "README.md",
-        ROOT / ".agents" / "notes" / "README.md",
+        ROOT / ".agents" / "cookbook" / "AGENTS.md",
+        ROOT / ".agents" / "postmortem" / "AGENTS.md",
+        ROOT / ".agents" / "notes" / "AGENTS.md",
+        ROOT / ".agents" / "skills" / "AGENTS.md",
         ROOT / "scripts" / "verify_template.py",
     ]
     for path in required:
@@ -106,7 +108,7 @@ def check_required_dirs(errors: Errors) -> None:
             directory = ROOT / ".agents" / "notes" / lifecycle / kind
             if not directory.is_dir():
                 errors.add(f"missing note class directory: {directory.relative_to(ROOT)}")
-    for name in ("algorithms", "planned", "successes", "failures", "results", "templates"):
+    for name in ("algorithms", "planned", "successes", "mixed", "refuted", "results", "templates"):
         directory = ROOT / "lab" / "experiments" / name
         if not directory.is_dir():
             errors.add(f"missing experiments directory: {directory.relative_to(ROOT)}")
@@ -175,12 +177,24 @@ def check_agent_notes(errors: Errors) -> None:
                 errors.add(f"{rel} implemented/archived notes must not contain {heading}")
 
 
+def section_has_fence(text: str, heading: str) -> bool:
+    """True when the section under `heading` holds a fenced code block."""
+    match = re.search(rf"^{re.escape(heading)}\s*$", text, re.MULTILINE)
+    if match is None:
+        return False
+    rest = text[match.end() :]
+    next_h = re.search(r"^## ", rest, re.MULTILINE)
+    body = rest[: next_h.start()] if next_h else rest
+    return "```" in body
+
+
 def check_experiments(errors: Errors) -> None:
     exp_root = ROOT / "lab" / "experiments"
     for lifecycle, expected_status in (
         ("planned", "Status: planned"),
         ("successes", "Status: success"),
-        ("failures", "Status: failure"),
+        ("mixed", "Status: mixed"),
+        ("refuted", "Status: refuted"),
     ):
         folder = exp_root / lifecycle
         for markdown in folder.glob("*.md"):
@@ -205,6 +219,8 @@ def check_experiments(errors: Errors) -> None:
                     errors.add(f"{rel} missing {heading}")
                 elif not section_has_body(text, heading):
                     errors.add(f"{rel} empty {heading}")
+            if heading_present(text, "## Method") and not section_has_fence(text, "## Method"):
+                errors.add(f"{rel} ## Method needs pseudocode in a fenced block")
     algorithms = exp_root / "algorithms"
     for markdown in algorithms.glob("*.md"):
         if markdown.name in EXPERIMENT_SKIP:
@@ -215,6 +231,8 @@ def check_experiments(errors: Errors) -> None:
         text = markdown.read_text(encoding="utf-8")
         if not text.startswith("# Algorithm: "):
             errors.add(f"algorithm must start with '# Algorithm: ': {rel}")
+        if not section_has_fence(text, "## Sketch"):
+            errors.add(f"algorithm ## Sketch needs pseudocode in a fenced block: {rel}")
 
 
 def main() -> int:

@@ -48,7 +48,7 @@ evidence:
 competing_explanations:
   - id: <slug>
     claim: <falsifiable sentence>
-    status: untested | supported | falsified | unresolved
+    status: untested | supported | mixed | refuted | unresolved
 attempted_interventions:
   - id: <slug>
     description: <text>

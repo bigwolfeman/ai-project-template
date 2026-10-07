@@ -96,9 +96,9 @@ def check_campaign_artifacts(errors: Any, root: Path = ROOT) -> None:
 
 def check_optional_research_skills(errors: Any, root: Path = ROOT) -> None:
     skills_root = root / ".agents" / "skills"
-    catalog = skills_root / "README.md"
+    catalog = skills_root / "AGENTS.md"
     if not catalog.is_file():
-        errors.add("missing required file: .agents/skills/README.md")
+        errors.add("missing required file: .agents/skills/AGENTS.md")
     for name in RESEARCH_SKILLS:
         skill_md = skills_root / name / "SKILL.md"
         if not skill_md.is_file():

@@ -6,6 +6,6 @@ alwaysApply: false
 
 # Agent Notes
 
-Follow [.agents/notes/README.md](../../.agents/notes/README.md).
+Follow [.agents/notes/AGENTS.md](../../.agents/notes/AGENTS.md).
 
 Path: `{lifecycle}/{class}/yyyy-mm-dd-slug.md`. Status line must match the folder. Alternatives considered is mandatory. Implemented notes use Decision and Consequences, never Proposal or Acceptance criteria. Archived notes are frozen.

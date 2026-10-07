@@ -9,9 +9,9 @@ This procedure tests one hypothesis. A campaign that coordinates several experim
 5. The agent runs `python scripts/verify_template.py`.
 6. The agent executes the method. The agent writes artifacts under `lab/experiments/results/yyyy-mm-dd-slug/`.
 7. The agent fills Results, Verdict, Updated hypothesis using [experiment-completed.md](../../lab/experiments/templates/experiment-completed.md).
-8. The agent moves the file to `successes/` when the hypothesis is supported. The agent moves the file to `failures/` when the hypothesis is falsified or the protocol failed. The agent deletes the planned copy.
+8. The agent compares the measurement to the strong bar and the dead-end bar. The agent moves the file to `successes/` when the strong bar is cleared, to `mixed/` when the result has signal but is not a clean win, and to `refuted/` only for a solid dead end or a protocol failure. The agent deletes the planned copy.
 9. The agent runs the verifier again.
 
 The agent does not backfill predictions.
 
-Trial outcomes (`accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`) are not hypothesis verdicts (`supported`, `falsified`, `unresolved`).
+Trial outcomes (`accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`) are not hypothesis verdicts (`supported`, `mixed`, `refuted`, `unresolved`).

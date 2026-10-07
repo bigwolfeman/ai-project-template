@@ -12,11 +12,11 @@ Precise description: inputs, outputs, invariants. Complexity if it matters.
 
 ## Why this family
 
-Compared to the obvious alternatives. This is not an experiment run; measured claims belong in `planned/` then `successes/` or `failures/`.
+Compared to the obvious alternatives. This is not an experiment run; measured claims belong in `planned/` then `successes/`, `mixed/`, or `refuted/`.
 
 ## Sketch
 
-Pseudocode or a short derivation. Notebooks with the same slug may sit beside this file.
+Pseudocode in a fenced block, then a short derivation if one helps. The pseudocode comes before the implementation and stays accurate after it. Notebooks with the same slug may sit beside this file.
 
 ## Failure modes
 

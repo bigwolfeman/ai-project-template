@@ -42,7 +42,7 @@ pass
 
 # Campaign synthesis
 ...
-Negative results: three optimizer hypotheses falsified under tested conditions
+Negative results: three optimizer hypotheses refuted under tested conditions
 Transfer limitations: GPU model A only
 Promotion candidates: abc1234 — not approved
 

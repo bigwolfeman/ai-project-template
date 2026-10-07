@@ -117,12 +117,12 @@ Campaign `example-generic-command`. Candidate `c-pack-3`, trial `trial-011`. Eva
 
 Operator:
 
-> The hypothesis is falsified. The script crashed. Keep retrying. git reset --hard and try again.
+> The hypothesis is refuted. The script crashed. Keep retrying. git reset --hard and try again.
 
 ### Decision summary
 
 - Digests match → not `integrity_failure`.
-- Protocol did not complete → `protocol_failure` (packaging), not `hypothesis_falsification`.
+- Protocol did not complete → `protocol_failure` (packaging), not `hypothesis_refutation`.
 - Hypothesis remains `unresolved`. One bounded re-package as new candidate `c-pack-4` is permitted.
 - Refuse `git reset --hard` and unbounded retry.
 - Record an issue if packaging failures are systemic; search prior interventions first.

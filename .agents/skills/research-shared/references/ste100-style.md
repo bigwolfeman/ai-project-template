@@ -101,7 +101,7 @@ Use this checklist when the operator asks to edit, tighten, or clarify technical
 - Ledger events, digests, and predicted measurements (do not smooth them)
 - Hypothesis text, budget numbers, and stop conditions (do not change silently)
 
-Do not edit files under `.agents/notes/archived/`. Do not move experiment files between `planned/`, `successes/`, and `failures/` while editing prose. For a live planned experiment, the agent may clarify Method wording. The agent does not change observable claims in Predictions without operator approval. Trial outcomes and hypothesis verdicts stay distinct (do not rewrite “rejected” as “falsified”).
+Do not edit files under `.agents/notes/archived/`. Do not move experiment files between `planned/`, `successes/`, `mixed/`, and `refuted/` while editing prose. For a live planned experiment, the agent may clarify Method wording. The agent does not change observable claims in Predictions without operator approval. Trial outcomes and hypothesis verdicts stay distinct (do not rewrite “rejected” as “refuted”).
 
 ### Revise prose
 

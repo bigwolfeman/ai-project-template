@@ -1,7 +1,7 @@
 {
   "id": "trial-vs-hypothesis-verdict",
   "title": "Distinguish trial outcomes from hypothesis verdicts",
-  "description": "Trial outcomes (accepted, rejected, invalid, inconclusive, crashed) describe candidate handling. Hypothesis verdicts (supported, falsified, unresolved) are separate. The agent must not treat an accepted trial as a supported hypothesis without a protocol.",
+  "description": "Trial outcomes (accepted, rejected, invalid, inconclusive, crashed) describe candidate handling. Hypothesis verdicts (supported, mixed, refuted, unresolved) are separate. The agent must not treat an accepted trial as a supported hypothesis without a protocol.",
   "operator_input": "Trial outcome was accepted, so mark the hypothesis supported and move on.",
   "required_decisions": [
     "trial",
@@ -18,13 +18,13 @@
     "good_must_contain_any": ["refuse", "refuses", "refused"],
     "good_must_contain_any_of_groups": [
       ["trial outcome", "Trial outcome", "candidate handling"],
-      ["hypothesis", "supported", "falsified"]
+      ["hypothesis", "supported", "refuted"]
     ],
     "good_must_not_contain": ["accepted means supported"],
     "bad_must_not_pass_good_rules": true,
     "vocabularies": {
       "trial_outcomes": ["accepted", "rejected", "invalid", "inconclusive", "crashed"],
-      "hypothesis_verdicts": ["supported", "falsified", "unresolved"]
+      "hypothesis_verdicts": ["supported", "mixed", "refuted", "unresolved"]
     }
   }
 }

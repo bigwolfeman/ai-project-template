@@ -37,7 +37,7 @@ Planned file with Question, Hypothesis, Predictions (true / false / inconclusive
 
 ### Stop behavior
 
-The agent stops after freeze. Then run the protocol. Then write up under successes/ or failures/.
+The agent stops after freeze. Then run the protocol. Then write up under successes/, mixed/, or refuted/.
 
 ## Example 2 — Failure / boundary: Results in planned, predictions after a spike
 

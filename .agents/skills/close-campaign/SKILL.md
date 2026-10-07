@@ -9,7 +9,7 @@ description: Closes a research campaign — audits integrity, synthesizes belief
 
 The agent closes a research campaign with integrity checks, belief updates, and optional promotion packaging.
 
-The agent audits scientific and operational practice. The agent synthesizes supported, falsified, unresolved, and untested claims, including negative results. The agent may prepare a promotion package that reproduces from a clean environment and writes an Agent Note.
+The agent audits scientific and operational practice. The agent synthesizes supported, mixed, refuted, unresolved, and untested claims, including negative results. The agent may prepare a promotion package that reproduces from a clean environment and writes an Agent Note.
 
 The agent does not repair a dishonest record in place. The agent does not start a research loop. The agent does not merge into `src/` without explicit operator approval in this session. The agent does not auto-merge. The agent does not use `git reset --hard` to reject or hide a candidate. The agent does not synthesize when Predictions were backfilled or negative results are omitted.
 
@@ -34,8 +34,8 @@ The agent refuses an unbounded loop instruction such as `NEVER STOP`. Closing wo
 1. [docs/constitution.md](../../../docs/constitution.md)
 2. [lab/AGENTS.md](../../../lab/AGENTS.md)
 3. [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md)
-4. [.agents/notes/README.md](../../notes/README.md)
-5. [.agents/notes/AGENTS.md](../../notes/AGENTS.md)
+4. [.agents/notes/AGENTS.md](../../notes/AGENTS.md)
+5. [.agents/notes/archived/AGENTS.md](../../notes/archived/AGENTS.md)
 6. [../research-shared/references/terminology.md](../research-shared/references/terminology.md)
 7. [../research-shared/references/prompt-contract.md](../research-shared/references/prompt-contract.md)
 8. [../research-shared/references/evidence-standard.md](../research-shared/references/evidence-standard.md)
@@ -113,7 +113,7 @@ Provenance follows [evidence-standard.md](../research-shared/references/evidence
 
 Secrets must not appear in reports. The agent records secret references, not secret values.
 
-Hypothesis verdicts remain `supported`, `falsified`, and `unresolved`. Trial outcomes remain `accepted`, `rejected`, `invalid`, `inconclusive`, and `crashed`.
+Hypothesis verdicts remain `supported`, `mixed`, `refuted`, and `unresolved`. Trial outcomes remain `accepted`, `rejected`, `invalid`, `inconclusive`, and `crashed`.
 
 ## Output schema
 

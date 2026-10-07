@@ -20,7 +20,7 @@ Compress the toolkit to seven workflows plus the shared reference index:
 | [close-campaign](../../../skills/close-campaign/SKILL.md) | `audit-research-integrity`, `synthesize-campaign`, `promote-research-result` |
 | [prove-property](../../../skills/prove-property/SKILL.md) | Unchanged role. Handoffs retargeted. |
 
-Catalog: [.agents/skills/README.md](../../../skills/README.md). Verifier list: `RESEARCH_SKILLS` in `scripts/verify_campaign.py`.
+Catalog: [.agents/skills/AGENTS.md](../../../skills/AGENTS.md). Verifier list: `RESEARCH_SKILLS` in `scripts/verify_campaign.py`.
 
 Long procedures live in each skill’s `references/` files. The `SKILL.md` Procedure section links those files and does not paste a second full skill.
 

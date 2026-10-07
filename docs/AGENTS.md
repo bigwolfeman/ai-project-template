@@ -1,6 +1,6 @@
 # AGENTS.md — Documentation standard
 
-Placement, document kinds, and slop. Agent Notes stay outside this file's structural pass; they follow [.agents/notes/README.md](../.agents/notes/README.md). Experiments follow [lab/experiments/AGENTS.md](../lab/experiments/AGENTS.md). Lab work follows [lab/AGENTS.md](../lab/AGENTS.md). Cookbooks: [.agents/cookbook/README.md](../.agents/cookbook/README.md).
+Placement, document kinds, and slop. Agent Notes stay outside this file's structural pass; they follow [.agents/notes/AGENTS.md](../.agents/notes/AGENTS.md). Experiments follow [lab/experiments/AGENTS.md](../lab/experiments/AGENTS.md). Lab work follows [lab/AGENTS.md](../lab/AGENTS.md). Cookbooks: [.agents/cookbook/AGENTS.md](../.agents/cookbook/AGENTS.md).
 
 ## Document kinds
 

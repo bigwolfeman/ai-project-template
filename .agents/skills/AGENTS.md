@@ -1,4 +1,4 @@
-# Skills
+# AGENTS.md — Skills
 
 This directory owns reusable workflows. Root `AGENTS.md` names the toolkit and links here. This file selects a workflow. It does not copy a skill procedure.
 

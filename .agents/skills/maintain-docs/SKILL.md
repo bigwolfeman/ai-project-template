@@ -9,7 +9,7 @@ description: >-
 
 # Maintain documentation and Agent Notes
 
-Rules for placement live in [docs/AGENTS.md](../../../docs/AGENTS.md). Experiments: [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md). Lab: [lab/AGENTS.md](../../../lab/AGENTS.md). Notes: [.agents/notes/README.md](../../notes/README.md) and [.agents/notes/archived/AGENTS.md](../../notes/archived/AGENTS.md).
+Rules for placement live in [docs/AGENTS.md](../../../docs/AGENTS.md). Experiments: [lab/experiments/AGENTS.md](../../../lab/experiments/AGENTS.md). Lab: [lab/AGENTS.md](../../../lab/AGENTS.md). Notes: [.agents/notes/AGENTS.md](../../notes/AGENTS.md) and [.agents/notes/archived/AGENTS.md](../../notes/archived/AGENTS.md).
 
 Apply ASD-STE100 principles when revising prose. The STE checklist lives in [../research-shared/references/ste100-style.md](../research-shared/references/ste100-style.md). Do not claim official conformance.
 

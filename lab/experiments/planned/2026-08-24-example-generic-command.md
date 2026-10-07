@@ -24,7 +24,11 @@ If the hypothesis is true, we will observe:
 - Mean latency for run 2 and run 3 each lie within ±20% of run 1's mean latency.
 - The evaluator lock digest is unchanged across the three runs.
 
-If the hypothesis is false, we will observe:
+If the result is mixed, we will observe:
+
+- Hard constraints pass and the lock digest is unchanged, but mean latency for run 2 or run 3 differs from run 1 by more than 5% and at most 20%.
+
+If the hypothesis is false (a solid dead end), we will observe:
 
 - At least one hard constraint fails on an unchanged subject, or
 - Mean latency for run 2 or run 3 differs from run 1 by more than 20%, or
@@ -37,6 +41,14 @@ What would make this run inconclusive (protocol failure, not a hypothesis test):
 - The subject or fixtures were mutated before baseline completed.
 
 ## Method
+
+```
+verify evaluator.lock.json matches protected resources
+for run in 1..3:
+    run sealed evaluator on unchanged subject (same command, same env scrub)
+    record hard-constraint pass/fail, latency_ms, lock digest, host load
+compare mean latency of runs 2,3 against run 1; compare digests
+```
 
 1. Copy `lab/templates/campaign/` to a disposable campaign under `lab/campaigns/` only if a live campaign is required. For template verification, treat this file as the linked example for the generic-command program theme.
 2. Confirm `evaluator.lock.json` matches protected resources. Do not mutate protected paths.

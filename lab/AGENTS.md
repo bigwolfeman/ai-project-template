@@ -1,6 +1,6 @@
 # AGENTS.md — Lab
 
-The lab is the execution plane. Production code lives in `src/`. Hypotheses live in [lab/experiments/](experiments/AGENTS.md). Decisions live in [.agents/notes/](../.agents/notes/README.md).
+The lab is the execution plane. Production code lives in `src/`. Hypotheses live in [lab/experiments/](experiments/AGENTS.md). Decisions live in [.agents/notes/](../.agents/notes/AGENTS.md).
 
 Architecture: [.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md](../.agents/notes/implemented/architecture/2026-08-24-automated-research-campaigns.md).
 
@@ -16,7 +16,21 @@ A **trial** is one execution of one **candidate**. Trial outcomes are `accepted`
 
 The agent classifies the work before any automated research. The agent does not treat a spike as an experiment after seeing the outcome.
 
-How-tos: [starting a campaign](../.agents/cookbook/starting-a-campaign.md), [starting an experiment](../.agents/cookbook/starting-an-experiment.md). Toolkit: [.agents/skills/README.md](../.agents/skills/README.md).
+How-tos: [starting a campaign](../.agents/cookbook/starting-a-campaign.md), [starting an experiment](../.agents/cookbook/starting-an-experiment.md). Toolkit: [.agents/skills/AGENTS.md](../.agents/skills/AGENTS.md).
+
+## Literate lab
+
+Documentation lives with the code. The lab is where ideas start, so the lab is where the idea gets written down first.
+
+- A spike opens with a pseudocode block (a header comment or a `NOTES.md` beside the code) that states what the spike tries. The agent writes it before the code and fixes it when the code changes.
+- An experiment's Method holds pseudocode of the change under test. `scripts/verify_template.py` checks for the fenced block.
+- An algorithm writeup holds the full pseudocode in Sketch. Code that implements it carries a comment with a relative link back to the writeup.
+- A campaign `program.md` states the mutable subject's intended behavior in pseudocode. Each accepted candidate keeps a short pseudocode diff in its report.
+- Promotion into `src/` carries the pseudocode along as the module or function docstring, plus links to the experiment and the Agent Note. A reader of `src/` sees why the code exists without leaving the file.
+
+Pseudocode is not prose about the code. It is the algorithm in short, readable steps, with the same control flow as the code. When code and pseudocode disagree, one of them is a bug. Fix it in the same change.
+
+Agent Notes stay under `.agents/notes/`. They hold decisions and rejected alternatives, which are too long and too raw to sit beside code. The code links to them.
 
 ## Tracked vs ignored
 

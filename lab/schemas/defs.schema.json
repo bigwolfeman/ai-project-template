@@ -63,7 +63,8 @@
         "planned",
         "testing",
         "supported",
-        "falsified",
+        "mixed",
+        "refuted",
         "unresolved",
         "superseded",
         "abandoned"

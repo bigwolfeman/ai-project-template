@@ -24,5 +24,5 @@ Cookbook, experiments, and postmortem lived under `docs/` while `docs/` was mean
 ## Consequences
 
 - Every link to `docs/experiments/`, `docs/cookbook/`, or `docs/postmortem/` must use the new paths.
-- `scripts/verify_template.py` validates `lab/experiments/` and requires `.agents/cookbook/README.md` and `.agents/postmortem/README.md`.
+- `scripts/verify_template.py` validates `lab/experiments/` and requires `.agents/cookbook/AGENTS.md` and `.agents/postmortem/AGENTS.md`.
 - Verification: `python scripts/verify_template.py` and `python -m unittest discover -s tests -q`.

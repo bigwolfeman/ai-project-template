@@ -43,7 +43,7 @@ The agent must not silently approve cost, safety, or irreversible work for the o
 
 **Evidence** — a result with provenance. See [evidence-standard.md](evidence-standard.md).
 
-**Synthesis** — a belief update from a set of experiments and trials. A synthesis distinguishes supported, falsified, unresolved, and untested claims.
+**Synthesis** — a belief update from a set of experiments and trials. A synthesis distinguishes supported, mixed, refuted, unresolved, and untested claims.
 
 **Promotion** — a human-reviewed project decision that moves a research result toward production. Promotion requires tests or proofs, documentation, and an Agent Note when shipped behavior or architecture changes. The agent must not write campaign output into `src/` without operator review.
 
@@ -72,30 +72,32 @@ A hypothesis verdict is one of:
 | Verdict | Meaning |
 |---|---|
 | `supported` | The protocol ran. The predictions held. |
-| `falsified` | The protocol ran. The predictions did not hold. |
+| `mixed` | The protocol ran. The result has signal but is not a clean win: some predictions held, or the effect is below the strong bar. |
+| `refuted` | The protocol ran and the result is a solid dead end: effect absent or reversed, no rescue left. |
 | `unresolved` | The claim is not decided. |
 
 A synthesis may also mark a claim **untested**. Untested means no valid protocol addressed that claim.
 
 ## Experiment folders are not trial outcomes
 
-This slice keeps `lab/experiments/planned/`, `successes/`, and `failures/`.
+This slice keeps `lab/experiments/planned/`, `successes/`, `mixed/`, and `refuted/`.
 
 | Folder | Meaning |
 |---|---|
 | `planned/` | Hypothesis, predictions, and method. No results. |
-| `successes/` | Predictions held. Hypothesis `supported`. |
-| `failures/` | Hypothesis `falsified`, or the protocol failed so the hypothesis was not tested. |
+| `successes/` | Predictions held past the strong bar. Hypothesis `supported`. |
+| `mixed/` | Partial signal. Hypothesis `mixed`. The idea stays open. |
+| `refuted/` | Hypothesis `refuted` (solid dead end), or the protocol failed so the hypothesis was not tested. |
 
 The Verdict section must state which case applies. A script that exits 0 is not a supported hypothesis.
 
-If the method cannot tell whether the hypothesis is true, that is a protocol failure. The agent files it under `failures/` with an `unresolved` claim. That folder status is not the trial outcome `inconclusive`.
+If the method cannot tell whether the hypothesis is true, that is a protocol failure. The agent files it under `refuted/` with an `unresolved` claim. That folder status is not the trial outcome `inconclusive`.
 
 ## Comparator outcomes are a third vocabulary
 
 The comparator returns `dominates`, `equivalent`, `regresses`, `mixed`, `invalid`, or `inconclusive`.
 
-Campaign policy maps comparator outcomes to trial outcomes. The agent must not treat a comparator label as a hypothesis verdict.
+Campaign policy maps comparator outcomes to trial outcomes. The agent must not treat a comparator label as a hypothesis verdict. The comparator word `mixed` and the hypothesis verdict `mixed` share a spelling and nothing else.
 
 ## Planes
 

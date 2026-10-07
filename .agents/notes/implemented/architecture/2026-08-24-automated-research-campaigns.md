@@ -16,7 +16,7 @@ The repository uses a domain-general research model:
 - **Experiment** — one falsifiable hypothesis in `lab/experiments/`.
 - **Campaign** — a bounded program in `lab/campaigns/<slug>/` that coordinates one or more experiments and many **trials**.
 - **Trial** — one execution of one **candidate**. Outcomes: `accepted`, `rejected`, `invalid`, `inconclusive`, `crashed`. These are not hypothesis verdicts.
-- **Hypothesis verdicts** — `supported`, `falsified`, `unresolved`. Experiment folders remain `planned/`, `successes/`, and `failures/`. `successes/` means predictions held. `failures/` means falsified or protocol failure. State which in Verdict.
+- **Hypothesis verdicts** — `supported`, `mixed`, `refuted`, `unresolved`. Experiment folders remain `planned/`, `successes/`, `mixed/`, and `refuted/`. `successes/` means predictions held past the strong bar. `mixed/` means partial signal. `refuted/` means a solid dead end or a protocol failure. State which in Verdict.
 
 `lab/` is the execution plane. `lab/experiments/` is the evidence plane. `.agents/notes/` is the decision plane. `src/` receives promoted work only after human review.
 
@@ -65,7 +65,7 @@ When `branch_worktree_policy.isolation` is `git_worktree`, the runner creates a 
 
 ### Toolkit
 
-Workflows live under `.agents/skills/`. Catalog: [.agents/skills/README.md](../../../.agents/skills/README.md). Root `AGENTS.md` names the toolkit and links. It does not copy procedures.
+Workflows live under `.agents/skills/`. Catalog: [.agents/skills/AGENTS.md](../../../.agents/skills/AGENTS.md). Root `AGENTS.md` names the toolkit and links. It does not copy procedures.
 
 Shipped campaign skills run from scope through audit and promotion. Campaign static contract: `lab/templates/campaign/`, schemas under `lab/schemas/`, `scripts/verify_campaign.py`. Runner: `scripts/campaign_runner/`, `scripts/run_campaign.py`. Cookbook: [.agents/cookbook/starting-a-campaign.md](../../../.agents/cookbook/starting-a-campaign.md), [.agents/cookbook/running-a-campaign.md](../../../.agents/cookbook/running-a-campaign.md).
 
@@ -74,7 +74,7 @@ Shipped campaign skills run from scope through audit and promotion. Campaign sta
 - **Keep `lab/` as spikes only** — agents still have nowhere to put protected evaluators, budgets, or trial ledgers.
 - **Treat every trial as an experiment Markdown file** — hundreds of files, and the scientific record mixes with execution noise.
 - **Copy Karpathy autoresearch (`program.md` + mutable `train.py` + `git reset`)** — ML-specific, destructive, unbounded, and evaluator “read-only” is not a real boundary.
-- **Neutral `completed/` instead of `successes/`/`failures/`** — clearer scientifically; deferred so the existing experiment verifier stays stable.
+- **Neutral `completed/` instead of `successes/`/`refuted/`** — clearer scientifically; deferred so the existing experiment verifier stays stable.
 - **ADAS-style meta-agent archive as the first artifact** — too large; campaigns and evaluators must exist first.
 
 ## Consequences
@@ -83,5 +83,5 @@ Shipped campaign skills run from scope through audit and promotion. Campaign sta
 - A campaign cannot run without a sealed evaluator lock and an explicit budget.
 - Disposable worktrees keep the production branch unchanged. Mutable and protected paths are overlaid into the worktree for evaluation.
 - Negative trial evidence remains in the ledger. Promotion into `src/` requires human review and an Agent Note.
-- Keeping `successes/`/`failures/` can confuse trial outcomes with hypothesis verdicts. Skills and `lab/experiments/AGENTS.md` keep the vocabularies separate.
+- Keeping `successes/`/`refuted/` can confuse trial outcomes with hypothesis verdicts. Skills and `lab/experiments/AGENTS.md` keep the vocabularies separate.
 - Verification: `python scripts/verify_template.py`, `python scripts/verify_campaign.py lab/templates/campaign`, and `python -m unittest discover -s tests -q`.
