@@ -1,4 +1,4 @@
-# Experiment: Generic command evaluator latency and pass rate
+# Experiment: Generic evaluator latency stability
 
 Status: planned
 

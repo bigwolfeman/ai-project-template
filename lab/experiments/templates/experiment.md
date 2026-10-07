@@ -1,4 +1,4 @@
-# Experiment: <title>
+# Experiment: <2-5 word descriptive name>
 
 Status: planned
 

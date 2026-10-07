@@ -32,6 +32,10 @@ Pseudocode is not prose about the code. It is the algorithm in short, readable s
 
 Agent Notes stay under `.agents/notes/`. They hold decisions and rejected alternatives, which are too long and too raw to sit beside code. The code links to them.
 
+## Names, not codes
+
+The agent gives every spike, experiment, ablation, arm, and task a descriptive name of 2 to 5 words. Letter-number codes (`V1`, `S16`) may follow a name as an alias. They never replace it. A campaign `program.md` lists its arms and tasks by name. Detail: [experiments/AGENTS.md](experiments/AGENTS.md).
+
 ## Tracked vs ignored
 
 The tracked campaign holds the contract and projections:

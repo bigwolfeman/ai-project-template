@@ -206,6 +206,10 @@ def check_experiments(errors: Errors) -> None:
             text = markdown.read_text(encoding="utf-8")
             if not text.startswith("# Experiment: "):
                 errors.add(f"experiment must start with '# Experiment: ': {rel}")
+            else:
+                words = text.splitlines()[0].removeprefix("# Experiment: ").split()
+                if not 2 <= len(words) <= 5:
+                    errors.add(f"experiment title must be 2 to 5 descriptive words, got {len(words)}: {rel}")
             if expected_status not in text.splitlines()[:8]:
                 errors.add(f"{rel} must include {expected_status} near the top")
             if lifecycle == "planned":

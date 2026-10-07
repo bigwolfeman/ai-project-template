@@ -27,6 +27,16 @@ Algorithm writeups: `algorithms/yyyy-mm-dd-short-slug.md` plus optional `algorit
 
 Result artifacts: `results/yyyy-mm-dd-short-slug/` matching the run file's slug. Large binaries go in `ignored/experiment-artifacts/` with a pointer file in `results/`.
 
+## Name every experiment
+
+Every experiment, ablation, arm, task, and trial group gets a name of 2 to 5 words that says what it tests. Examples: "Language-directed object removal", "Bag-of-words reader control", "No-text reader floor". The filename slug, the `# Experiment:` title, and every table and report use that name.
+
+A letter-number code (`V1`, `S16`, `R16`) is not a name. A code may follow the name as an alias, for example "No-text reader floor (V4)". A code never stands alone in a title, a table cell, a Verdict, or a link. Reason: a reader who sees `V4` must open another file to learn what it tests, and an agent that meets `V4` in a later session guesses.
+
+A control or floor arm says so in its name. The Question says what the arm is a control for.
+
+`scripts/verify_template.py` checks that each experiment title has 2 to 5 words.
+
 ## Write the idea down as pseudocode
 
 Every Method section holds pseudocode of the change under test, in a fenced block. The verifier checks for the fence. A reader should follow the idea without opening the diff. If the method is new, the algorithm writeup holds the full pseudocode and Method links to it.
